@@ -12,8 +12,6 @@ public class ActivateOnlineBankingTest extends BaseTest {
         activateOnlineBankingPage.fillTheForm();
         activateOnlineBankingPage.submit();
         activateOnlineBankingPage.goBack();
-        activateOnlineBankingPage.loginContent
-                .shouldHave(Condition.value(SAMPLE_LOGIN))
-                .as("login input should contain value: " + SAMPLE_LOGIN);
+        activateOnlineBankingPage.verifyContent(SAMPLE_LOGIN);
     }
 }

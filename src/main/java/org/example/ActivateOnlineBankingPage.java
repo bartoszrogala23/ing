@@ -1,5 +1,6 @@
 package org.example;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
@@ -8,14 +9,14 @@ import static org.example.Constatnt.*;
 
 public class ActivateOnlineBankingPage {
 
-    public SelenideElement loginInput = $(By.name("ctl00$CPH$Content_NPH_Login"));
-    public SelenideElement documentTypeDropdown = $(By.id("ctl00_CPH_SelectedOptionID_DropDown1_NPH_TypIdentyfikatora"));
-    public SelenideElement passport = $(By.xpath("//*[@class='dropdown-menu open']//*[contains(text(),'Paszport')]"));
-    public SelenideElement passportNumberInput = $(By.name("ctl00$CPH$Content_NPH_NumerPaszportu"));
-    public SelenideElement mothersNameInput = $(By.name("ctl00$CPH$Content_NPH_NazwiskoRodoweMatki"));
-    public SelenideElement submitButton = $(By.name("ctl00$CPH$nav_G010_TwojeDane_Button1_a010_Dalej"));
-    public SelenideElement backButton = $(By.id("ctl00_CPH_nav_G020_HasloDoBankowosciBezSzyfrowania_Button2_a040_Wstecz"));
-    public SelenideElement loginContent = $(By.name("ctl00$CPH$Content_NPH_Login"));
+    private SelenideElement loginInput = $(By.name("ctl00$CPH$Content_NPH_Login"));
+    private SelenideElement documentTypeDropdown = $(By.id("ctl00_CPH_SelectedOptionID_DropDown1_NPH_TypIdentyfikatora"));
+    private SelenideElement passport = $(By.xpath("//*[@class='dropdown-menu open']//*[contains(text(),'Paszport')]"));
+    private SelenideElement passportNumberInput = $(By.name("ctl00$CPH$Content_NPH_NumerPaszportu"));
+    private SelenideElement mothersNameInput = $(By.name("ctl00$CPH$Content_NPH_NazwiskoRodoweMatki"));
+    private SelenideElement submitButton = $(By.name("ctl00$CPH$nav_G010_TwojeDane_Button1_a010_Dalej"));
+    private SelenideElement backButton = $(By.id("ctl00_CPH_nav_G020_HasloDoBankowosciBezSzyfrowania_Button2_a040_Wstecz"));
+    private SelenideElement loginContent = $(By.name("ctl00$CPH$Content_NPH_Login"));
 
     public void fillField(SelenideElement inputElement, String input) {
         inputElement.sendKeys(input);
@@ -39,5 +40,11 @@ public class ActivateOnlineBankingPage {
 
     public void goBack() {
         backButton.click();
+    }
+
+    public void verifyContent(String content) {
+        loginContent
+                .shouldHave(Condition.value(content))
+                .as("login input should contain value: " + content);
     }
 }
