@@ -1,0 +1,2786 @@
+<html xmlns="http://www.w3.org/1999/xhtml" id="ctl00_CPH_b44e92a7__fep1"><head id="ctl00_Head1">
+ 
+  <!--  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin-ext&amp;ver=638484698654210519" />-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta name="format-detection" content="telephone=no"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><title>ING Bank Śląski - Nadaj hasło do bankowości</title>
+    
+    
+
+
+
+     
+
+
+
+    <script type="text/javascript">
+        var submitCount = 0;
+        function form_onSubmit() {
+            if (mobileAndTabletCheck()) {
+                $('input[mobilekeyboard=decimal], input[mobilekeyboard=int], input[mobilekeyboard=tel]').each(function () {
+                    var $this = $(this);
+                    var val = $this.val();
+                    $this.attr("type", "text");
+                    $this.val(val);
+                });
+            }
+            timeout = getSessionTimeout();
+            var result = (submitCount == 0);
+            submitCount++;
+            return result;
+        }
+    </script>
+
+   <script type="text/javascript">
+
+        var prevKey = "";
+        document.onkeydown = disableTab;
+
+        if (document.addEventListener) {
+            document.addEventListener('onkeydown', disableTab, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('onkeydown', disableTab);
+        }
+        function disableTab(obj) {
+            var e = obj;
+
+            if (obj === undefined) {
+                e = event || window.event;
+            }
+            if (e) {
+                if (e.srcElement && e.srcElement.className && e.srcElement.className.toLowerCase() == "trumbowyg-editor") {
+                    return;
+                }
+                var keyASCII = parseInt(e.keyCode, 10);
+                var src = e.srcElement || e.target;
+                var tag = src.tagName.toUpperCase();
+                if (keyASCII == 9) {
+                    $modalBackground = $('.ModalBackground');
+                    if (!CheckNU($modalBackground) && $modalBackground.length > 0) {
+                        var flag = true;
+                        $modalBackground.each(function () {
+                            if ($(this).is(':visible'))
+                                flag = false;
+                            return;
+                        });
+                        if (!flag)
+                            return flag;
+                    }
+                }
+                if (keyASCII == 13 && tag != "TEXTAREA") {
+                    return ($('ctl00_CPH_ffeContainer') == null);
+                }
+                if (keyASCII == 8) {
+                    if (src.readOnly || src.disabled || (tag != "INPUT" && tag != "TEXTAREA")) {
+
+                        return false;
+                    }
+                    if (src.type) {
+                        var type = ("" + src.type).toUpperCase();
+                        return type != "CHECKBOX" && type != "RADIO" && type != "BUTTON" && type != "SUBMIT";
+                    }
+                }
+
+                //close tab or browser
+                if (e.key) {
+
+
+                    if (e.key.toUpperCase() == "F4" && prevKey == "ALT") {
+                        if (CheckFlag() == true) {
+                            window.onbeforeunload = Try2CloseBrowser;
+                        }
+                    }
+
+                    //refresh     
+                    else if ((e.key == "F5") ||
+                        (e.key.toUpperCase() == "R" && prevKey == "CONTROL")) {
+                        //alert ("F5 or CTRL + R")
+                        //window.onbeforeunload = ConfirmLeave;
+                        //window.onbeforeunload = function (e) { alert ("ConfirmLeave"); return "";} ;
+                        window.onbeforeunload = null;
+                    }
+                }
+            }
+            if (e.key) {
+                prevKey = e.key.toUpperCase();
+            }
+            return true;
+        }
+
+
+        function ffeBusy() {
+        }
+        function ffeReady() {
+        }
+    </script>
+
+    <!--[if lt IE 7]>
+    <link rel="stylesheet" type="text/css" href="./App_Themes/IE6.css?ver=638484698654210519" />
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="./App_Themes/IE7.css?ver=638484698654210519" />
+    <![endif]-->
+<link id="ctl00_Flow.Web.UI.Controls.Css.MultipleSelectDropDown" href="/DETeWniosekWormsExt/WebResource.axd?d=4uuxJzjStU7aesPznF-TQETDLv5jxlMszCfJhKMSQvoUNH-Cr-Pyj9BfEZKhm6Xntq1ftA1zKhXxPKIoRKhlolyDCAYl0F8WZzQkP_7EWJtQqfLfHM9fytY4ssol9QixUw8gFp89dNpMn3er370wFBVvyBc1&amp;t=637625453420000000" type="text/css" rel="stylesheet"><link id="ctl00_Flow.Web.UI.Controls.Css.jquery.splitter" href="/DETeWniosekWormsExt/WebResource.axd?d=P1x70YCwfkHXc2AuTcwdGd73-GT5F5XHivimrvUqE1J4DFRyRlbLhQJAKHLHT6XHtfNG4bdUrtCdpyeJo2J5RZabHpAYwdr6RCze4Cm9HwPJutREW90gqLVcVcSvEwvdV3LTAi4a1WwSi2vBIppaR3Om6Ws1&amp;t=637625453420000000" type="text/css" rel="stylesheet"><link href="App_Themes/WORMS/fepworms.css?ver=638484698654210519" type="text/css" rel="stylesheet"><link href="App_Themes/WORMS/outer.css?ver=638484698654210519" type="text/css" rel="stylesheet"><link href="WizardWfB.aspx?type=initcss&amp;v=a00c12b8-3273-47a5-80cd-dd2b2c32eded" type="text/css" rel="stylesheet"><link href="WizardWfB.aspx?type=css&amp;v=a00c12b8-3273-47a5-80cd-dd2b2c32eded" id="fepinlinestyle" type="text/css" rel="stylesheet"><link href="GetImage.axd?s=ING.fontface&amp;b=6&amp;v=EDE10C748" rel="stylesheet" type="text/css"></head>
+<body class="" id="ctl00_CPH_b44e92a7__fep2">
+    
+    <form name="aspnetForm" method="post" action="./wizardwfb.aspx?path=T6_DT-EndUserWormsExt-S10-NPH&amp;FieldString25=a&amp;lang=pl-PL&amp;bankId=6&amp;profileId=4&amp;c=1" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm" enctype="multipart/form-data" novalidate="" class="form-horizontal fepBootstrap30">
+<div>
+<input type="hidden" name="ctl00_SM_HiddenField" id="ctl00_SM_HiddenField" value="">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/DETeWniosekWormsExt/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZKGSKu6sYB_jbBQ5HigULLxucegzsIN4MjiAHpA67FgPgRpS9A2&amp;t=638459860569584809" type="text/javascript"></script>
+
+
+<script src="/DETeWniosekWormsExt/ScriptResource.axd?d=Raf3-bvdJ3vwBB75cn6cAk057w7rnNV8MdUh2hHsfoxsG43KvuTwBJnFXuR_PGiN7Tv6Wl-bslfYnNwCfCpoFb_naeeIjVGFVdcjZbaDrVaLorB7RSsxHpm0xgTDLOQJkZOhKYLHiEScBROorwk4IAt-6VQ1&amp;t=ac036f8" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+try { window.document.title = "ING Bank Śląski - Nadaj hasło do bankowości";  window.onbeforeunload = function () {            document.cookie = "ASP.NET_SessionId " +"="+ "" +              ";domain="+ null+              ";path=/"+              ";expires=Thu, 01 Jan 1970 00:00:00 GMT";   alert("wqw");      }; } catch(err) { console.error('OnStart javascript error: ' + err); };BankID = 6; ProfileID = 4; paramUID = '';if(uniquePageState != null && uniquePageState != undefined && typeof uniquePageState == 'string'){uniquePageState='0c13d397-c835-4025-991f-baf3399a95ac'}else{var uniquePageState='0c13d397-c835-4025-991f-baf3399a95ac'}var FFENamingContainer = 'ctl00_CPH';FerrytNeededFields = { FerrytCustomDateFormat: '','NPH_Kierunkowy':{'value': ''},'_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark':{'value': ''}};var FFEEnumApplicationEventLogChangeType = {'Editable':0,'Required':1,'Visible':2,'SeparatorVisible':3,'GroupVisible':4,'ActionEditable':5,'EnumeratorAdd':6,'EnumeratorRemove':7,'EnumeratorClear':8,'AllowSave':9,'TableAdd':10,'TableRemove':11,'TableAllowAdd':12,'TableAllowRemove':13,'Value':14};//]]>
+</script>
+
+<script src="/DETeWniosekWormsExt/ScriptResource.axd?d=L7dUBF3FTasbNA-SGI9VkBm7ahGhW9ZJjlDKMfqvu96GbS9xpVhrLX2mXuJYprhsUUBIM5ZcihMlAwMEcvqexM4E1OdikTojc37TDge9IIga39QNOJNuheeeKUR67HyrN58sLD47wMQrpmNx1w2l-34552U1&amp;t=2c1589eb" type="text/javascript"></script>
+<script src="/DETeWniosekWormsExt/ScriptResource.axd?d=j3govPptTHup6J4jZ_Osf4an3-NaNGLTkXA7UMgPpIEcjdYCjRpsWoIGpsLvoehNZR4ujzHQfwHsWPh3tnPblXcjwUxMtOk_Wk50OCOeW2M76_Z9_gEQUlP199NA3LapnZEVj4_2WwJvWofzDtK_P1FNoroGuGxUR5Bo_LgK-WD7Ms190&amp;t=fffffffff162aeb5" type="text/javascript"></script>
+<script src="/DETeWniosekWormsExt/ScriptResource.axd?d=oFHP07t5NyZtRpHugvJd4RjJsVfaCnGo1LEtyZMWNK3CWFpjHe3pn-1PTtsgbabC0X2L0MqoGAIbo_MZbBTat8a9ruX39Fwd4s1QpQ3TcMUdDYBxICpBXxyzuUL75Q4QqONWO_ogZc6PgGuqblGOarfTbtI1&amp;t=fffffffff162aeb5" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WFNPH_GdzieZnajdeLogin(sender, event) {if(sender && sender.getAttribute('asyncactionchanged') === 'true') { return false; } if( FFEValid(sender, event)){clearFFEComment();// RuleSet34
+if (true)
+{
+	setFFEVisible('NPH_GdzieLogin', true);
+	setFFEVisible('NPH_GdzieZnajdeLogin', false);
+}
+TryShowRemoteSessionMessage();
+FFETrace.SaveTrace(FFETraceFieldID);}if(typeof SetControlHorizontalPosition == 'function'){SetControlHorizontalPosition(null, true);};if(typeof InSystemWindowResize != 'undefined') {setTimeout(InSystemWindowResize(), 200);}};//]]>
+</script>
+
+<script src="/DETeWniosekWormsExt/ScriptResource.axd?d=1HpV3OVB0CaEXoaafcqmhunVKE6reutEkMRkDIAiraTdeasVgsjLk1s1aX-CZgkeTTHugE-pvWs1DVN8lTVvavr9gRuCMoix5ecLl4JOlLCak8HwoWTXt1_lANoFdHp6u7QUow2&amp;t=ffffffffa8ad04d3" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WFNPH_TypIdentyfikatora(sender, event) {if(sender && sender.getAttribute('asyncactionchanged') === 'true') { return false; } if( FFEValid(sender, event)){clearFFEComment();// RuleSet2
+if (true)
+{
+	setFFEValue('NPH_NumerPESEL', null, 'string');
+	setFFEValue('NPH_NumerDowoduOsobistego', null, 'string');
+	setFFEValue('NPH_NumerPaszportu', null, 'string');
+	setFFEValue('NPH_KartaPobytu', null, 'string');
+	setFFEValue('NPH_mObywatel', null, 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatoraAng', 'string') == 'mDowod') && (getFFEValue('NPH_Jezyk', 'string') == '2')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'mDowód number:', 'string');
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', true);
+	setFFERequired('NPH_mObywatel', true);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'F', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatora', 'string') == 'mDowod') && (getFFEValue('NPH_Jezyk', 'string') == '1')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Numer mDowód:', 'string');
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', true);
+	setFFERequired('NPH_mObywatel', true);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'F', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatoraAng', 'string') == 'paszport') && (getFFEValue('NPH_Jezyk', 'string') == '2')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Passport number:', 'string');
+	setFFEVisible('NPH_NumerPaszportu', true);
+	setFFERequired('NPH_NumerPaszportu', true);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'C', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatoraAng', 'string') == 'kartaPobytu') && (getFFEValue('NPH_Jezyk', 'string') == '2')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Residence card:', 'string');
+	setFFEVisible('NPH_KartaPobytu', true);
+	setFFERequired('NPH_KartaPobytu', true);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'E', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatoraAng', 'string') == 'dowodOsobisty') && (getFFEValue('NPH_Jezyk', 'string') == '2')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'ID card number:', 'string');
+	setFFEVisible('NPH_NumerDowoduOsobistego', true);
+	setFFERequired('NPH_NumerDowoduOsobistego', true);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'B', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatora', 'string') == 'kartaPobytu') && (getFFEValue('NPH_Jezyk', 'string') == '1')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Numer karty pobytu:', 'string');
+	setFFEVisible('NPH_KartaPobytu', true);
+	setFFERequired('NPH_KartaPobytu', true);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'E', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatoraAng', 'string') == 'pesel') && (getFFEValue('NPH_Jezyk', 'string') == '2')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'PESEL number:', 'string');
+	setFFEVisible('NPH_NumerPESEL', true);
+	setFFERequired('NPH_NumerPESEL', true);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'A', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatora', 'string') == 'paszport') && (getFFEValue('NPH_Jezyk', 'string') == '1')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Numer  paszportu:', 'string');
+	setFFEVisible('NPH_NumerPaszportu', true);
+	setFFERequired('NPH_NumerPaszportu', true);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'C', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatora', 'string') == 'dowodOsobisty') && (getFFEValue('NPH_Jezyk', 'string') == '1')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Numer dowodu osobistego:', 'string');
+	setFFEVisible('NPH_NumerDowoduOsobistego', true);
+	setFFERequired('NPH_NumerDowoduOsobistego', true);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'B', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatora', 'string') == 'pesel') && (getFFEValue('NPH_Jezyk', 'string') == '1')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Numer PESEL:', 'string');
+	setFFEVisible('NPH_NumerPESEL', true);
+	setFFERequired('NPH_NumerPESEL', true);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'A', 'string');
+}
+TryShowRemoteSessionMessage();
+FFETrace.SaveTrace(FFETraceFieldID);}if(typeof SetControlHorizontalPosition == 'function'){SetControlHorizontalPosition(null, true);};if(typeof InSystemWindowResize != 'undefined') {setTimeout(InSystemWindowResize(), 200);}};function WFNPH_TypIdentyfikatoraAng(sender, event) {if(sender && sender.getAttribute('asyncactionchanged') === 'true') { return false; } if( FFEValid(sender, event)){clearFFEComment();// RuleSet2
+if (true)
+{
+	setFFEValue('NPH_NumerPESEL', null, 'string');
+	setFFEValue('NPH_NumerDowoduOsobistego', null, 'string');
+	setFFEValue('NPH_NumerPaszportu', null, 'string');
+	setFFEValue('NPH_KartaPobytu', null, 'string');
+	setFFEValue('NPH_mObywatel', null, 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatoraAng', 'string') == 'mDowod') && (getFFEValue('NPH_Jezyk', 'string') == '2')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'mDowód number:', 'string');
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', true);
+	setFFERequired('NPH_mObywatel', true);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'F', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatora', 'string') == 'mDowod') && (getFFEValue('NPH_Jezyk', 'string') == '1')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Numer mDowód:', 'string');
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', true);
+	setFFERequired('NPH_mObywatel', true);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'F', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatoraAng', 'string') == 'paszport') && (getFFEValue('NPH_Jezyk', 'string') == '2')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Passport number:', 'string');
+	setFFEVisible('NPH_NumerPaszportu', true);
+	setFFERequired('NPH_NumerPaszportu', true);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'C', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatoraAng', 'string') == 'kartaPobytu') && (getFFEValue('NPH_Jezyk', 'string') == '2')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Residence card:', 'string');
+	setFFEVisible('NPH_KartaPobytu', true);
+	setFFERequired('NPH_KartaPobytu', true);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'E', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatoraAng', 'string') == 'dowodOsobisty') && (getFFEValue('NPH_Jezyk', 'string') == '2')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'ID card number:', 'string');
+	setFFEVisible('NPH_NumerDowoduOsobistego', true);
+	setFFERequired('NPH_NumerDowoduOsobistego', true);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'B', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatora', 'string') == 'kartaPobytu') && (getFFEValue('NPH_Jezyk', 'string') == '1')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Numer karty pobytu:', 'string');
+	setFFEVisible('NPH_KartaPobytu', true);
+	setFFERequired('NPH_KartaPobytu', true);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'E', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatoraAng', 'string') == 'pesel') && (getFFEValue('NPH_Jezyk', 'string') == '2')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'PESEL number:', 'string');
+	setFFEVisible('NPH_NumerPESEL', true);
+	setFFERequired('NPH_NumerPESEL', true);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'A', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatora', 'string') == 'paszport') && (getFFEValue('NPH_Jezyk', 'string') == '1')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Numer  paszportu:', 'string');
+	setFFEVisible('NPH_NumerPaszportu', true);
+	setFFERequired('NPH_NumerPaszportu', true);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'C', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatora', 'string') == 'dowodOsobisty') && (getFFEValue('NPH_Jezyk', 'string') == '1')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Numer dowodu osobistego:', 'string');
+	setFFEVisible('NPH_NumerDowoduOsobistego', true);
+	setFFERequired('NPH_NumerDowoduOsobistego', true);
+	setFFEVisible('NPH_NumerPESEL', false);
+	setFFERequired('NPH_NumerPESEL', false);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'B', 'string');
+}
+if (((getFFEValue('NPH_TypIdentyfikatora', 'string') == 'pesel') && (getFFEValue('NPH_Jezyk', 'string') == '1')))
+{
+	setFFEValue('NPH_NazwaDokumentu', 'Numer PESEL:', 'string');
+	setFFEVisible('NPH_NumerPESEL', true);
+	setFFERequired('NPH_NumerPESEL', true);
+	setFFEVisible('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerPaszportu', false);
+	setFFERequired('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_NumerDowoduOsobistego', false);
+	setFFEVisible('NPH_KartaPobytu', false);
+	setFFERequired('NPH_KartaPobytu', false);
+	setFFEVisible('NPH_mObywatel', false);
+	setFFERequired('NPH_mObywatel', false);
+	setFFEValue('_V_NPH_GetPassOvrModeREQ__Q__ibigpovmd__Q__authmark', 'A', 'string');
+}
+TryShowRemoteSessionMessage();
+FFETrace.SaveTrace(FFETraceFieldID);}if(typeof SetControlHorizontalPosition == 'function'){SetControlHorizontalPosition(null, true);};if(typeof InSystemWindowResize != 'undefined') {setTimeout(InSystemWindowResize(), 200);}};function FlowValidation_Pesel_Client(source, arguments) {var check = arguments.Value.includes(" ");
+if(arguments.Value.length == 11 && check == false)
+{
+var factor = new Array(1,3,7,9,1,3,7,9,1,3);
+s = 0;
+for (i=0;i<=9;i++)
+s += arguments.Value.charAt(i)*factor[i];
+eleven = (10-s%10)%10;
+arguments.IsValid =  (eleven==arguments.Value.charAt(10));
+}
+else
+   arguments.IsValid = false;}var __cultureInfo = {"name":"pl-PL","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","IsReadOnly":false,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":" ","CurrencySymbol":"zł","NaNSymbol":"NaN","CurrencyNegativePattern":8,"NumberNegativePattern":1,"PercentPositivePattern":1,"PercentNegativePattern":1,"NegativeInfinitySymbol":"-∞","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":",","NumberGroupSeparator":" ","CurrencyPositivePattern":3,"PositiveInfinitySymbol":"∞","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":",","PercentGroupSeparator":" ","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"AM","Calendar":{"MinSupportedDateTime":"\/Date(-62135596800000)\/","MaxSupportedDateTime":"\/Date(253402297199999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":false},"DateSeparator":"-","FirstDayOfWeek":1,"CalendarWeekRule":2,"FullDateTimePattern":"d MMMM yyyy HH:mm:ss","LongDatePattern":"d MMMM yyyy","LongTimePattern":"HH:mm:ss","MonthDayPattern":"d MMMM","PMDesignator":"PM","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"yyyy-MM-dd","ShortTimePattern":"HH:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM yyyy","AbbreviatedDayNames":["niedz.","pon.","wt.","śr.","czw.","pt.","sob."],"ShortestDayNames":["niedz.","pon.","wt.","śr.","czw.","pt.","sob."],"DayNames":["niedziela","poniedziałek","wtorek","środa","czwartek","piątek","sobota"],"AbbreviatedMonthNames":["sty","lut","mar","kwi","maj","cze","lip","sie","wrz","paź","lis","gru",""],"MonthNames":["styczeń","luty","marzec","kwiecień","maj","czerwiec","lipiec","sierpień","wrzesień","październik","listopad","grudzień",""],"IsReadOnly":false,"NativeCalendarName":"kalendarz gregoriański","AbbreviatedMonthGenitiveNames":["sty","lut","mar","kwi","maj","cze","lip","sie","wrz","paź","lis","gru",""],"MonthGenitiveNames":["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia",""]},"eras":[1,"n.e.",null,0]};//]]>
+</script>
+
+<script src="/DETeWniosekWormsExt/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LdGytnLNmrZ48dOKQHDotfFwqklBSkKsLQBpHg-q_PUZ5HLnAZgYNLKAe7Z1-NxkTOMud9lOrqiUWoy3w_NCfu9rH2jq0&amp;t=470de87b" type="text/javascript"></script>
+<script src="/DETeWniosekWormsExt/ScriptResource.axd?d=P5lTttoqSeZXoYRLQMIScJdZOiTlVSUTsuJ2hUwGEBAldtHZNxWCAJFeIptUE8gHs-Uv8oT5G0-DRNKSbT7rDHDKjUMA4-BuCJZjBKrUHoweHK2X0&amp;t=470de87b" type="text/javascript"></script>
+<script src="/DETeWniosekWormsExt/ScriptResource.axd?d=zKOPqRACpe-l-U8vt8Tbz-W-v8q8tyoNZK3GcfeWoBabk9mAh-rxr5nwpXnamvwj0r1EDK3x3qpPSZPsSYi4ZUXuhVZOWiUH3QNoFndizK2M-3FYPd3Dq9EebAVvwJHJnOksnxAoEzEBsxpQJQEGgBw03Pa7rCnRLIv5nnGll_pfSJXRTBBMEXhUWZPyAl7VS2dAznrZEwXLZt6Qno5GdTmnzZS0WrD4aSNq4Z_nviT9gjmAaa1CC8ReEAcXRKLTI3OVMqkVafDeWCEHoeYf6T36rPnE4S-q2KFI20rfLb24hbw8EPC4qHtDfp9YrXn3ol_UH8uWSu0e3BfmAREk7x_IpLu5na75oYvLzI7unj6RzdaGdkk4lzYNF_TWQxs1VywiJkp701DTtG1heg-JLHxKYFcTKJmfyOqSffwRpphbGSdDIasN6an5DDv-iLyUlZC3rjMzzpu_P2cDkQ2QCI4Ggqwd2prfK-ErMDpQd2_kf6f2Q6J09r6xyyqK6ZVR6ScfuemOs-OTkoSZf487OdE0luwwmv-E10c306ZPHEIyUPqU4oSSb9qw5laWh2XslY9tLvcMaQZfvyINLI9kCVW-pvPV_KeNRMHuXQzmsEtg75g4rEPPjimoe8pPiJ1qJfu7I5yr_PVjbtdjr-850OOU3x6_hpv16N4s82cSBHCwaShY0" type="text/javascript"></script>
+<script src="./script/jquery/jquery-3.3.1.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/UniflowConsole.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/AdditionalFunctions.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./Communication/Flow.FrontEnd.ClientCalls.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/Validation.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jquery/plugins/jquery.redirect.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jquery/plugins/jquery.plugin.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jquery/plugins/jquery.multiple.select.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jquery/plugins/jquery.splitter.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/DDScripts.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jquery.mask.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jquery.sticky.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jquery.ui.widget.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/plugins/owlCarousel/owl.carousel.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/plugins/jsencrypt/jsencrypt.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/FFEAnimate.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/plugins/drawSvg/vivus.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/plugins/drawSvg/pathformer.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/FFETabs.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/trumbowyg.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/languages/cs.min.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/languages/de.min.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/languages/fr.min.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/languages/pl.min.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/trumbowyg.history.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/trumbowyg.cleanpaste.min.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/trumbowyg.colors.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/trumbowyg.fontsize.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/trumbowyg.orderedromanlist.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/trumbowyg.textindent.min.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/Controls/regionCard.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/Controls/matrix.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/Controls/cardGallery.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/Core/ferryt-web-core-javascript.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/Core/UI/loader.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/bootstrap.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/pdf.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jquery.mousewheel.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jquery.jscrollpane.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/bootstrap-select.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/icheck.min.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/FileSaver.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jszip.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jszip-utils.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jquery/jquery_datepick/jquery.datepick.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/jquery/jquery_datepick/lang/jquery.datepick-pl.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/bootstrap-datepicker.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="./script/bootstrap-datepicker/bootstrap-datepicker.pl.js?ver=638484698654210519" type="text/javascript"></script>
+<script src="JSResourceHandler.axd?ID=Flow.Web.AsyncData.Resources|pl-PL" type="text/javascript"></script>
+<script src="./script/FFEAsyncFile.js?ver=638484698654210519" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;return form_onSubmit();
+return true;
+}
+//]]>
+</script>
+    
+    <input type="hidden" name="ctl00$FFENamingContainer" id="ctl00_FFENamingContainer">    
+    <input name="ctl00$FEPDevice" type="hidden" id="ctl00_FEPDevice" value="0">
+    <input type="hidden" name="ctl00$hidSessionTimeout" id="ctl00_hidSessionTimeout" value="30">
+    <input type="hidden" name="ctl00$hidSessionTimeoutWarn" id="ctl00_hidSessionTimeoutWarn">
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$SM', 'aspnetForm', ['tctl00$upM','','fctl00$CPH$fepUPInfo','','fctl00$CPH$fepUPProgress','','tctl00$CPH$fepUPStepTable1','','fctl00$CPH$fepUPNav','','tctl00$CPH$upMessage','','tctl00$CPH$upDialog',''], [], [], 180, 'ctl00');
+//]]>
+</script>
+
+    <div id="ctl00_upM" class="">
+	
+            
+            
+            <div id="ctl00_pC" class="pC">
+                
+    
+    <script type="text/javascript">
+        function noBack() { window.history.forward(); }
+        function noBackspace(event) { 
+          if (event != 'undefined' && event != undefined) {
+            if (event.keyCode == 8 && !event.srcElement.value) 
+                { window.event.returnValue = false; } 
+          }
+      }
+      function fireActionOnMaskField(input) {
+          if (input.tagName == 'INPUT') {
+              if (input.defaultValue != input.value) {
+                      $(document.getElementById(input.id)).change();
+              }
+          }
+      };
+
+    </script>
+    
+      
+   
+    <script type="text/javascript">
+        function uploadComplete() {
+
+            var x = "gggg";
+        }
+    </script>  
+
+
+    <!--[if IE 8]>
+     <script src="./script/respond.js?ver=638484698654210519" type="text/javascript"></script>
+    <![endif]-->
+
+    
+  
+
+    
+<input name="ctl00$CPH$separatorHidden" type="hidden" id="ctl00_CPH_separatorHidden">
+    <input name="ctl00$CPH$sessionIdHidden" type="hidden" id="ctl00_CPH_sessionIdHidden" value="0zb0gai3kgxnrngncg0lj3qk">
+    <input name="ctl00$CPH$onChangeDropDownList" type="hidden" id="ctl00_CPH_onChangeDropDownList">
+    <input name="ctl00$CPH$onAddDeleteRow" type="hidden" id="ctl00_CPH_onAddDeleteRow">
+    <input name="ctl00$CPH$iframeScrollPosition" type="hidden" id="ctl00_CPH_iframeScrollPosition" value="0">
+    <input name="ctl00$CPH$iframeElementPosition" type="hidden" id="ctl00_CPH_iframeElementPosition" value="0">
+    <input name="ctl00$CPH$iframeLastGroupName" type="hidden" id="ctl00_CPH_iframeLastGroupName">
+    <input name="ctl00$CPH$isWrapper" type="hidden" id="ctl00_CPH_isWrapper">
+    <input name="ctl00$CPH$currentImgCam" type="hidden" id="ctl00_CPH_currentImgCam">
+    
+    <script type="text/javascript">      
+        var FFEFlags = {
+Wrapper_checkActivation:true,
+Wrapper_captureTimeout:60,
+Wrapper_documentType:"ID",
+Wrapper_documentCapturMode:"mrzMediumVeryLowID",
+Wrapper_faceCaptureMode:"challengeCr2dLow",
+Wrapper_targetsNumber:3,
+Wrapper_maxCapturesBeforeDelay:5,
+Wrapper_seed:"unknown",
+Wrapper_securityLevel:"unknown",
+Wrapper_serverRandom:"unknown",
+Wrapper_certificates:"'unknown', 'unknown'",
+Wrapper_reason:"newAccount"
+};
+        var confSelectPicker = true;        
+        var confUseNewDropDowns = true;  
+        var confResizeDDList = false;  
+        var confSelectheight = 48;  
+        var confSelectTooltip = false;  
+        var confDropupAuto = true;  
+        var confisjScrollPane = false;  
+        var confSetControlsAfterInvalid = false;          
+        var firstinvalidtab=false;
+        var confCurrentSelectLi = null;
+        var confShowEmptyValue = false;      
+        var confRunConnectedSimpleActions = true;  
+        var simpleActionsArray = [];
+        var modifiedGroups = [];
+        var confAutoCompleteMinLength = 3;  
+        var confAutoCompleteContain = true; 
+        var confAutoCompleteResize = false; 
+        var confValidBackgroundOnRow = false;  
+        var confNativeSelect = true;  
+        var confCultureInfo = 'plPL';  
+        var confAddRowToEmptyTable = true;  
+        var confWizardSpaEnable = false;  
+        var confFullScreenTooltip = true;  
+        var confDateFormat = 'yyyy-mm-dd';
+        if ('default' != "default") {
+            confDateFormat = 'default';
+            }
+        var confBootPicker = true;  
+        var confFieldErrorSign = false;  
+        var confFieldValidCheck = false;      
+
+        var confBootPickerPosition = 'bottom left';   
+        var confBootPickerAutoclose = 'True';   
+        var confBootPickerWeekstart = 1;    
+        var confUseAsyncLoading = false;   
+        var confUseAsyncAction = false; 
+        
+        var confSeparatorHide = true;   
+        var confEnablingSaveButton = true;   
+        var confContextHelpSidePosition = 'auto';   
+        var confContextHelpDataTrigger = 'hover';   
+        var confJScrollBarHeightAuto = false;           
+        var confAlwaysMovePanDesciption = true;                   
+        var guiControlEnabled = false;
+        var guiControlClientLogEnabled = true;
+        var guiControlBroadcastToGroup = true;
+        var guiControlInformBeforeRefreshing = false;
+        var confGuiControlRefresh = 'DirtyRefresh';
+        var confBehaviorClearInvalidField = false;
+        var confAllowUncheckedRadioButton = false;
+        var confCustomSessionMode = false;
+        var bootstrap40 = false;
+        var jsPaneForModal = false;
+        var confRunTwoActions = true;
+        var validateControlsOnSimpleActions = false;
+        var confValidationHeaderText = false;
+        var focusOnFirstControl = false;
+        var confMobPopoverCloseBut = false;
+        var additionalFocus =  true;
+        var confMatrixOwlMobileMargin = 8;
+        var confMaterializeProgress = true;
+        var confUpperValidation = false;
+
+        var confImgCamPhotoFromVideoWidth = 1920;
+        var confImgCamPhotoFromVideoHeight = 1080;
+
+        var confClearFormTargetAfterUpload =  false; 
+
+        var useWrapper = true;
+        var confLoaderType = 'materialize';
+        var loaderFactory = null;
+        var pageLoader = null;
+        var modalBackground = null;
+
+
+    </script>
+    
+        <script type="text/javascript"> 
+            var langInfo = 'plPL';
+        </script>
+        
+       
+    
+    <input type="hidden" name="ctl00$CPH$ffePostBackAction" id="ctl00_CPH_ffePostBackAction">
+    <input name="ctl00$CPH$fepFocusField" type="hidden" id="ctl00_CPH_fepFocusField">
+    <input name="ctl00$CPH$fep" type="hidden" id="ctl00_CPH_fep">
+    <div id="ismobile"></div>
+    <div id="logo">
+       <div id="logoL" class="col-xs-1 col-xs-1 col-md-2 col-lg-2 fepLogoL" style="display: none;"></div>
+        <div id="logoM" class="col-xs-10 col-xs-10 col-md-8 col-lg-8 fepLogoM hidden">
+            <div class="col-sm-1 col-xs-1 col-xs-1 fepLogoMainL"></div>
+            <div class="col-sm-10 col-xs-10 col-xs-10 fepLogoMainC">
+                <span id="ctl00_CPH_logoApplicationInfoContent" class="fepLogoApplicationInfoContent">Wniosek </span>
+                <span id="ctl00_CPH_logoApplicationInfoAppNumber" class="fepLogoApplicationInfoAppNumber">Centrum Wsparcia Ferryt</span>
+            </div>
+            <div class="col-sm-1 col-xs-1 col-xs-1 fepLogoMainR"></div>
+        </div>
+        <div id="logoR" class="col-xs-1 col-xs-1 col-md-2 col-lg-2 feplogoR" style="display: none;"></div>
+    </div>
+
+    <div id="ctl00_CPH_fepContainerL" class="col-xs-1 col-md-2 col-lg-2"></div>
+
+    <div id="ctl00_CPH_fepContainerM" class="container col-xs-10 col-md-8 col-lg-8 headerLogo fromDesigner fepLastStep">
+   
+
+    <div id="headPanel">
+        <div id="ctl00_CPH_fepPreambule" class="form-group">
+            <div id="ctl00_CPH_fepPreambuleMainL" class="col-sm-1 col-xs-1 fepMainL"></div>
+            <div id="ctl00_CPH_fepPreambuleL" class="col-sm-5 col-xs-5"><div id="ctl00_CPH_fepPreamLogoId" class="fepPreamLogo">  
+            </div></div>
+            <div id="ctl00_CPH_fepPreambuleR" class="col-sm-5 col-xs-5"></div>
+            <div id="ctl00_CPH_fepPreambuleRMainR" class="col-sm-1 col-xs-1 fepMainR"></div>
+        </div>
+    </div>
+
+    
+    <div id="fepContent"> <!--style="padding-top:30px;"-->        
+        <div id="ctl00_CPH_fepUPInfo">
+		
+                <input name="ctl00$CPH$appnum" type="hidden" id="ctl00_CPH_appnum" value="NPH548733363">
+                <input type="hidden" name="ctl00$CPH$FFETRACE" id="ctl00_CPH_FFETRACE">
+                <input type="hidden" name="ctl00$CPH$SenderGroup" id="ctl00_CPH_SenderGroup" value="G010_TwojeDane">
+                <div id="ctl00_CPH_fepApplicationInfo" class="form-group fepUPInfo">
+                    <div class="col-sm-1 col-xs-1 col-xs-1 fepMainL"></div>
+                    <div class="col-sm-10 col-xs-10 col-xs-10 fepMainC fepApplicationInfo">
+                        <label for="ctl00_CPH_fepApplicationInfoContent" id="ctl00_CPH_fepApplicationInfoContent" class="fepApplicationInfoContent">Jesteś w trakcie składania wniosku </label>
+                        <label for="ctl00_CPH_fepApplicationInfoAppNumber" id="ctl00_CPH_fepApplicationInfoAppNumber" class="fepApplicationInfoAppNumber">Centrum Wsparcia Ferryt</label>
+                    </div>
+                    <div class="col-sm-1 col-xs-1 col-xs-1 fepMainR"></div>
+                </div>
+                <div id="ctl00_CPH_fepSystemInfo" class="form-group fepInfoNone fepUPInfo">
+                    <div class="col-sm-1 col-xs-1 col-xs-1 fepMainL"></div>   
+                    <div class="col-sm-10 col-xs-10 col-xs-10 fepMainC">
+                        <span id="ctl00_CPH_fepSystemInfoContent"></span>
+                    </div>                    
+                    <div class="col-sm-1 col-xs-1 col-xs-1 fepMainR"></div>   
+                    <div class="col-sm-1 col-xs-1 col-xs-1 fepMainL"></div>   
+                    <div id="ctl00_CPH_fepSystemInfoButtons" class="col-sm-10 col-xs-10 fepMainC">
+                        <div id="ctl00_CPH_fepSystemInfoTableButtons">
+                            <div id="ctl00_CPH_fepSystemInfoTableRowButtons"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1 col-xs-1 col-xs-1 fepMainR"></div>   
+                </div>
+            
+	</div>
+            <div id="ctl00_CPH_fepUPProgress">
+		
+                    <div class="form-group">
+                        <div class="col-sm-1 col-xs-1 col-xs-1 fepMainL"></div>  
+                        <div class="col-sm-10 col-xs-10  col-xs-10 fepMainC"></div>  
+                        <div class="col-sm-1 col-xs-1 col-xs-1 fepMainR"></div>          
+                    </div>                                       
+                
+	</div>            
+            <div id="ctl00_CPH_fepUPStepTable1">
+		
+                    <input name="ctl00$CPH$scrollPosition" type="hidden" id="ctl00_CPH_scrollPosition">
+                    <input name="ctl00$CPH$scrollPositionModal" type="hidden" id="ctl00_CPH_scrollPositionModal">
+                    <input name="ctl00$CPH$statusSymbol" type="hidden" id="ctl00_CPH_statusSymbol" value="S010_TwojeDane">
+                    <input name="ctl00$CPH$endRequestKeeper" type="hidden" id="ctl00_CPH_endRequestKeeper">
+                    <input name="ctl00$CPH$lastCibButton" type="hidden" id="ctl00_CPH_lastCibButton">
+                    <input name="ctl00$CPH$remoteSessionEnabled" type="hidden" id="ctl00_CPH_remoteSessionEnabled" value="0">
+                    <input name="ctl00$CPH$remoteSessionMessage" type="hidden" id="ctl00_CPH_remoteSessionMessage">
+                    <input name="ctl00$CPH$actionExecuter" type="hidden" id="ctl00_CPH_actionExecuter">
+                    <input name="ctl00$CPH$ffeTableProperties" type="hidden" id="ctl00_CPH_ffeTableProperties">
+                    <input name="ctl00$CPH$ffeTableActions" type="hidden" id="ctl00_CPH_ffeTableActions">
+                        <div class="fepLiPan" id="ctl00_CPH_b44e92a7__fep3" style="display: none;">
+                        <div class="col-sm-1 col-xs-1 col-xs-1 fepMainL"></div> 
+                        <div id="ctl00_CPH_fepLineParID" class="col-sm-10 col-xs-10 fepMainC fepLinePar">
+                        <div class="fepLine"></div></div>
+                        <div class="col-sm-1 col-xs-1 col-xs-1 fepMainR"></div>       
+                    </div>
+                    <input name="ctl00$CPH$windowDimensions" type="hidden" id="ctl00_CPH_windowDimensions" height="673" width="1333">                  
+                    <div class="form-group">
+                        <input name="ctl00$CPH$reload" type="hidden" id="ctl00_CPH_reload">  
+                        <div class="col-sm-1 col-xs-1 col-xs-1 fepMainL"></div>                          
+
+                        <div id="ctl00_CPH_fepStepStates" class="col-sm-10 col-xs-10 fepMainC fepStepStates fepDesignSteps">
+			 
+
+                            <div id="ctl00_CPH_fepStepTable1" class="col-sm-12 col-xs-12 fepMainC fepDesktopDevice"><div id="ctl00_CPH_G_StartHeader" class="panel panel-default fepPan" order="0">
+				<div class="panel-heading  fepPanHead fepGroupHead">
+					<span>StartHeader</span>
+				</div><div id="ctl00_CPH__G_StartHeader" class="panel-body fepPanBody">
+					<div class="feptable fepDesignGroup">
+						<div>
+							<div class=" fepDefFont fepDefFontTab fepDefFontMob" rid="0" ridmob="0" symbol="Grid1" bckimgalignmentpc="|||" bckimgalignmenttab="|||" bckimgalignmentmob="|||">
+								<div class="row" rid="R0|0">
+									 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class=" fepGridRounded col-xs-offset-0 col-xs-9 col-sm-offset-0 col-sm-3 col-md-offset-0 col-md-2 fepColPad fepDesRegion fepDefFont fepDefFontTab fepDefFontMob fepCustomMargins fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepContentCenter fepTabContentCenter fepMobContentCenter fepGridSepHeightsmall" rid="0" ridmob="0" symbol="Grid2" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0" id="ctl00_CPH_b44e92a7__fep5">
+										<div class="row" rid="R0|0">
+											 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+											</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-4 col-md-offset-0 col-md-12 fepColPad fepDesImage fepDefFont fepDefFontTab fepDefFontMob fepDesInvisible fepIMGSizeTab64 fepIMGSizeMob64 fepImgPosL fepImgPosMobL fepImgPosTabL fepImgVertC" rid="0|0" ridmob="0|0" symbol="Image1" id="ctl00_CPH_b44e92a7__fep6">
+												<div class="fepIMGDottedCircle"><img src="GetImage.axd?s=ING_LOGOTYPE_DESKTOP&amp;b=6&amp;v=EDE10C748"></div>
+											</div><div class="col-xs-0 col-sm-8 col-md-0">
+
+											</div>
+										</div>
+									</div><div class=" col-xs-0 col-sm-0 col-md-10">
+
+									</div>
+								</div><div class="row" rid="R0|1">
+									 <div class="col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepSepType0 fepDefFont fepDefFontTab fepDefFontMob" rid="1" ridmob="1" symbol="Separator1">
+										<div>
+											<div class="form-group fepValidator fepSeparatorParent fepSeparatorHidden" for="Separator1">
+												<div class="col-sm-12 col-xs-12 fepFieldCellSeparator">
+													<div class="fepLabelPanel">
+														<span></span><span class="fepRequired fepReqAsterisk" id="ctl00_CPH_b44e92a7__fep7" style="display: none;"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+									</div>
+								</div><div class="row" rid="R0|2">
+									 <div class="col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-10 col-md-offset-0 col-md-12 fepColPad fepDesGroupHeader fepDefFont fepH3Tab fepH3Mob" rid="2" ridmob="2" symbol="GroupHeader2">
+										<div>
+											<div class="form-group fepValidator fepNoPad" for="GroupHeader2">
+												<div class="control-label fepConLab fepGroupBold" id="ctl00_CPH_b44e92a7__fep9">
+													<div class="fepLabelPanel">
+														<span>Aktywuj bankowość internetową</span><span class="fepRequired fepReqAsterisk" id="ctl00_CPH_b44e92a7__fep10" style="display: none;"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div><div class="col-xs-0 col-sm-2 col-md-0">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><div id="ctl00_CPH_G_G010_TwojeDane" class="panel panel-default fepPan" order="1">
+				<div class="panel-heading  fepPanHead fepGroupHead">
+					<span>Twoje dane</span><span class="fepPanUnderText">ctl00_CPH_Content_NPH_Login</span>
+				</div><div id="ctl00_CPH__G_G010_TwojeDane" class="panel-body fepPanBody">
+					<div class="feptable fepDesignGroup">
+						<div>
+							<div class=" fepDefFont fepDefFontTab fepDefFontMob" rid="0" ridmob="0" symbol="Grid1" bckimgalignmentpc="|||" bckimgalignmenttab="|||" bckimgalignmentmob="|||">
+								<div class="row" rid="R0|0">
+									 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class=" fepGridRounded col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepDesRegion fepStepReg fepSummaryNextTo fepStepHeader12 fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="0" ridmob="0" symbol="Grid2" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+										<div class="fepStepPaneHead">
+
+										</div><div class="fepStepActual fepStepFirst fepFirstHidReg">
+											<div class="fepStepPaneNumber">
+												<span class="fepSepPaneNumber">1</span>
+											</div><div class="fepStepPaneTitle">
+												<span class="fepSepPaneTitle">Twoje dane</span>
+											</div>
+										</div><div class="fepStepBody fepShowStepBody" state="S010_TwojeDane">
+											<div class="fepInvisible">
+												<div class=" col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class=" fepGridRounded col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepDesRegion fepNoColsReg fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="0|0" ridmob="0|0" symbol="Grid3" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+													<div class="row" rid="R0|0|0">
+														 <div class="col-xs-12 col-sm-12 col-md-12 fepGridMinSpace fepDefFont fepDefFontTab fepDefFontMob">
+
+														</div>
+													</div>
+												</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+												</div>
+											</div><div class="row" rid="R0|1">
+												 <div class="col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class="col-xs-12 col-sm-12 col-md-12 fepGridMinSpace fepDefFont fepDefFontTab fepDefFontMob">
+
+												</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+												</div>
+											</div><div class="row" rid="R0|2">
+												 <div class="col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class=" fepGridRounded col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-4 col-md-offset-0 col-md-4 fepColPad fepDesRegion fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="0|2" ridmob="0|2" symbol="Grid6" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+													<div class="row" rid="R0|2|0">
+														 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+														</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepDesFreeText fepDesFreeText fepDefFont fepDefFontTab fepDefFontMob fepTextPosR fepTextPosMobL fepTextPosTabR" rid="0|2|0" ridmob="0|2|0" symbol="Label1" id="ctl00_CPH_b44e92a7__fep12">
+															<div>
+																<div class="form-group fepValidator fepNoPad" for="Label1">
+																	<div class="control-label fepConLab" id="ctl00_CPH_b44e92a7__fep13">
+																		<div class="fepLabelPanel">
+																			<span>Twój login:</span><span class="fepRequired fepReqAsterisk" id="ctl00_CPH_b44e92a7__fep14" style="display: none;"></span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+														</div>
+													</div><div class="row" rid="R0|2|1">
+														 <div class="col-xs-0 col-sm-0 col-md-0">
+
+														</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepP1 fepDefFont fepDefFontTab fepDefFontMob fepLinkPosR fepLinkPosMobL fepLinkPosTabR fepLinkStyle1" rid="0|2|1" ridmob="0|2|1" symbol="Link1">
+															<div>
+																<div id="ctl00_CPH_R_NPH_GdzieZnajdeLogin" class="form-group fepValidator">
+																	<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell" id="ctl00_CPH_b44e92a7__fep16">
+																		<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="link">
+																			<span></span><a id="ctl00_CPH_Content_NPH_GdzieZnajdeLogin" class="fepWebLink" fepaction="ap010_PokazInformacjeOLoginie" onclick="if(!CheckValidationsOnFocusForConsole(this)) return false; ffeBusy();;;WFNPH_GdzieZnajdeLogin(this, event);">Gdzie znajdę login?</a><div class="fepValIconPanel">
+																				<span id="ctl00_CPH_Content_NPH_GdzieZnajdeLogin_ValImg" class="fepValidIco" style="display: none;"></span>
+																			</div><div class="fepValidContainer" feplv="true">
+
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+														</div>
+													</div><div class="row" rid="R0|2|2">
+														 <div class="col-xs-0 col-sm-0 col-md-0">
+
+														</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepDesFreeText fepDesFreeText fepCaption1 fepT6RgTab fepT6RgMob fepTextPosR fepTextPosMobL fepTextPosTabR" rid="0|2|2" ridmob="0|2|2" symbol="Label6" id="ctl00_CPH_b44e92a7__fep18">
+															<div>
+																<div id="ctl00_CPH_R_NPH_GdzieLogin" class="form-group fepValidator" style="display: none;">
+																	<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell" id="ctl00_CPH_b44e92a7__fep20">
+																		<div class="col-sm-12 col-xs-12  fepTextInputPanel" controltype="valueaslabel">
+																			<span></span><div id="ctl00_CPH_ctl227" class="fepLongString fepTextInput">
+																				<span id="ctl00_CPH_Content_NPH_GdzieLogin" class="fepMainLabelValue">Login znajdziesz w umowie oraz w aneksach do umowy. Jeśli korzystasz z aplikacji, znajdziesz go w sekcji „Moje dane”.<br>Sprawdź SMS-y od nas – wysyłamy tak login dla nowo otwartych bankowości. Zawsze też możesz sprawdzić go w placówce bankowej.<br>Login zawiera 3 pierwsze litery imienia i 3 pierwsze litery nazwiska i 4 cyfry, np. jankow1234</span>
+																			</div><div class="fepValidContainer" feplv="true">
+
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div><div class="col-xs-0 col-sm-0 col-md-0">
+
+														</div>
+													</div>
+												</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class=" fepGridRounded col-xs-offset-0 col-xs-9 col-sm-offset-0 col-sm-3 col-md-offset-0 col-md-3 fepColPad fepDesRegion fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="0|2" ridmob="0|3" symbol="Grid7" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+													<div class="row" rid="R0|2|0">
+														 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+														</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-4 col-md-offset-0 col-md-10 fepColPad fepDefFont fepDefFontTab fepDefFontMob" rid="0|2|0" ridmob="0|3|0" symbol="Field1">
+															<div>
+																<div class="form-group fepValidator fepNoPad">
+																	<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell">
+																		<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="textbox" id="ctl00_CPH_b44e92a7__fep21">
+																			<span class="fepRequired"></span><input name="ctl00$CPH$Content_NPH_Login" type="text" maxlength="10" id="ctl00_CPH_Content_NPH_Login" class="form-control fepString" onkeydown="javascript:  FocusNextOnTab(this,event); return EnterToTab(event);" autocomplete="off"><div class="fepValIconPanel">
+																				<span id="ctl00_CPH_Content_NPH_Login_ValImg" class="fepValidIco" style="display: none;"></span>
+																			</div><div class="fepValidContainer" feplv="true">
+																				<span id="ctl00_CPH_WEB_Content_NPH_Login" class="fepv fepcust" style="display: none; visibility: hidden;">Login jest niepoprawny. Prawidłowy format to: abcdef1234</span><span id="ctl00_CPH_REQ_Content_NPH_Login" class="fepv fepreq" style="display: none; visibility: hidden;">Pole wymagane.</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div><div class="col-xs-0 col-sm-8 col-md-2">
+
+														</div>
+													</div>
+												</div><div class=" col-xs-0 col-sm-0 col-md-5">
+
+												</div>
+											</div><div class="row" rid="R0|3">
+												 <div class="col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-4 col-md-offset-0 col-md-4 fepColPad fepDesFreeText fepDesFreeText fepDefFont fepDefFontTab fepDefFontMob fepTextPosR fepTextPosMobL fepTextPosTabL fepTextVertC" rid="0|3" ridmob="0|4" symbol="Label2" id="ctl00_CPH_b44e92a7__fep25">
+													<div>
+														<div class="form-group fepValidator fepNoPad" for="Label2">
+															<div class="control-label fepConLab" id="ctl00_CPH_b44e92a7__fep26">
+																<div class="fepLabelPanel">
+																	<span>Typ dokumentu:</span><span class="fepRequired fepReqAsterisk" id="ctl00_CPH_b44e92a7__fep27" style="display: none;"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class=" fepGridRounded col-xs-offset-0 col-xs-9 col-sm-offset-0 col-sm-3 col-md-offset-0 col-md-3 fepColPad fepDesRegion fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="0|3" ridmob="0|5" symbol="Grid5" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+													<div class="row" rid="R0|3|0">
+														 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+														</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-10 fepColPad fepDefFont fepDefFontTab fepDefFontMob fepDropdownPosL fepDropdownListElemPosL" rid="0|3|0" ridmob="0|5|0" symbol="DropDown1" id="ctl00_CPH_b44e92a7__fep29">
+															<div>
+																<div id="ctl00_CPH_R_NPH_TypIdentyfikatora" class="form-group fepValidator">
+																	<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell" id="ctl00_CPH_b44e92a7__fep30" style="overflow: visible;">
+																		<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="dropdown">
+																			<span></span><div id="ctl00_CPH_Content_NPH_TypIdentyfikatoraContainer" tabindex="0">
+																				<select name="ctl00$CPH$Content_NPH_TypIdentyfikatora" id="ctl00_CPH_Content_NPH_TypIdentyfikatora" class="fepNewDropDown selectpicker form-control fepDropDown fepDict" disableinwf="false" onchange="WFNPH_TypIdentyfikatora(this, event);SetOptgroupLabel(this);" onblur="runActionOnDropDownBlur(); ChDDstyle();" nv="false" uv="false" fepaction="ap010_ZmianaTypuIdentyfikatora" tabindex="-98">
+																					<option selected="selected" value="pesel">PESEL</option>
+																					<option value="dowodOsobisty">Dowód osobisty</option>
+																					<option value="paszport">Paszport</option>
+																					<option value="mDowod">mDowód</option>
+																					<option value="kartaPobytu">Karta Pobytu</option>
+
+																				</select><button class="fepButTempVis fepButTempHidden fepButTempHiddenImportant"></button>
+																			<div class="btn-group bootstrap-select form-control fepDropDown fepDict fepNewDropDown dropup open" onkeydown="DropDownMenuByArrow(this, event)">
+																					<button class="btn dropdown-toggle btn-info" data-toggle="dropdown" data-id="ctl00_CPH_Content_NPH_TypIdentyfikatora" aria-expanded="true"><span id="ctl00_CPH_SelectedOptionID_DropDown1_NPH_TypIdentyfikatora" class="filter-option pull-left">PESEL<div class="fepDescContainer" style="display: none;"></div></span><span class="bs-caret"><span id="ctl00_CPH_CarretID_DropDown1_NPH_TypIdentyfikatora" class="caret"></span></span></button><div class="dropdown-menu open" menufor="NPH_TypIdentyfikatora" style="overflow: hidden;">
+																						<div class="fepDropDownInnerDiv">
+																							<ul class="dropdown-menu inner" role="menu" style="overflow-y: auto;"><li data-original-index="0" class="selected"><a class="fepDropDownListNoPad"><span class="text" id="ctl00_CPH_b44e92a7__fep31" style="display: table-cell;">PESEL</span></a></li><li data-original-index="1"><a class="fepDropDownListNoPad"><span class="text" id="ctl00_CPH_b44e92a7__fep33" style="display: table-cell;">Dowód osobisty</span></a></li><li data-original-index="2"><a class="fepDropDownListNoPad"><span class="text" id="ctl00_CPH_b44e92a7__fep35" style="display: table-cell;">Paszport</span></a></li><li data-original-index="3"><a class="fepDropDownListNoPad"><span class="text" id="ctl00_CPH_b44e92a7__fep37" style="display: table-cell;">mDowód</span></a></li><li data-original-index="4"><a class="fepDropDownListNoPad"><span class="text" id="ctl00_CPH_b44e92a7__fep39" style="display: table-cell;">Karta Pobytu</span></a></li></ul>
+																						</div>
+																					</div>
+																				</div></div><div class="fepValIconPanel">
+																				<span id="ctl00_CPH_Content_NPH_TypIdentyfikatora_ValImg" class="fepValidIco" style="display: none;"></span>
+																			</div><div class="fepValidContainer" feplv="true">
+																				<span id="ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora" class="fepv fepreq" style="display: none;">Pole wymagane.</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div><div class=" col-xs-0 col-sm-0 col-md-2">
+
+														</div>
+													</div><div class="row" rid="R0|3|1">
+														 <div class="col-xs-0 col-sm-0 col-md-0">
+
+														</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-10 fepColPad fepDefFont fepDefFontTab fepDefFontMob fepDropdownPosL fepDropdownListElemPosL" rid="0|3|1" ridmob="0|5|1" symbol="DropDown2" id="ctl00_CPH_b44e92a7__fep43">
+															<div>
+																<div id="ctl00_CPH_R_NPH_TypIdentyfikatoraAng" class="form-group fepValidator" style="display: none;">
+																	<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell" id="ctl00_CPH_b44e92a7__fep45">
+																		<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="dropdown">
+																			<span></span><div id="ctl00_CPH_Content_NPH_TypIdentyfikatoraAngContainer">
+																				<select name="ctl00$CPH$Content_NPH_TypIdentyfikatoraAng" id="ctl00_CPH_Content_NPH_TypIdentyfikatoraAng" class="fepNewDropDown selectpicker form-control fepDropDown fepDict fepDropDownTip" disableinwf="false" onchange="WFNPH_TypIdentyfikatoraAng(this, event);SetOptgroupLabel(this);" onblur="runActionOnDropDownBlur(); ChDDstyle();" nv="true" uv="false" fepaction="ap010_ZmianaTypuIdentyfikatora" tabindex="-98">
+																					<option selected="selected" value="">--wybierz--</option>
+																					<option value="pesel">Personal Identification Number</option>
+																					<option value="dowodOsobisty">ID</option>
+																					<option value="paszport">Passport No.</option>
+																					<option value="mDowod">mDowód</option>
+																					<option value="kartaPobytu">Residence card</option>
+
+																				</select><button class="fepButTempVis fepButTempHidden fepButTempHiddenImportant"></button>
+																			<div class="btn-group bootstrap-select form-control fepDropDown fepDict fepDropDownTip fepNewDropDown" onkeydown="DropDownMenuByArrow(this, event)">
+																					<button class="btn dropdown-toggle btn-info" data-toggle="dropdown" data-id="ctl00_CPH_Content_NPH_TypIdentyfikatoraAng"><span id="ctl00_CPH_SelectedOptionID_DropDown2_NPH_TypIdentyfikatoraAng" class="filter-option pull-left">--wybierz--<div class="fepDescContainer" style="display: none;"></div></span><span class="bs-caret"><span id="ctl00_CPH_CarretID_DropDown2_NPH_TypIdentyfikatoraAng" class="caret"></span></span></button><div class="dropdown-menu open" menufor="NPH_TypIdentyfikatoraAng">
+																						<div class="fepDropDownInnerDiv">
+																							<ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="fepInvisible selected"><a class="fepDropDownListNoPad"><span class="text" id="ctl00_CPH_b44e92a7__fep46" style="display: table-cell;">--wybierz--</span></a></li><li data-original-index="1"><a class="fepDropDownListNoPad"><span class="text" id="ctl00_CPH_b44e92a7__fep48" style="display: table-cell;">Personal Identification Number</span></a></li><li data-original-index="2"><a class="fepDropDownListNoPad"><span class="text" id="ctl00_CPH_b44e92a7__fep50" style="display: table-cell;">ID</span></a></li><li data-original-index="3"><a class="fepDropDownListNoPad"><span class="text" id="ctl00_CPH_b44e92a7__fep52" style="display: table-cell;">Passport No.</span></a></li><li data-original-index="4"><a class="fepDropDownListNoPad"><span class="text" id="ctl00_CPH_b44e92a7__fep54" style="display: table-cell;">mDowód</span></a></li><li data-original-index="5"><a class="fepDropDownListNoPad"><span class="text" id="ctl00_CPH_b44e92a7__fep56" style="display: table-cell;">Residence card</span></a></li></ul>
+																						</div>
+																					</div>
+																				</div></div><div class="fepValIconPanel">
+																				<span id="ctl00_CPH_Content_NPH_TypIdentyfikatoraAng_ValImg" class="fepValidIco" style="display: none;"></span>
+																			</div><div class="fepValidContainer" feplv="true">
+
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div><div class="col-xs-0 col-sm-0 col-md-2">
+
+														</div>
+													</div>
+												</div><div class=" col-xs-0 col-sm-0 col-md-5">
+
+												</div>
+											</div><div class="row" rid="R0|4">
+												 <div class="col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-4 col-md-offset-0 col-md-4 fepColPad fepDesFreeText fepDesFreeText fepDefFont fepDefFontTab fepDefFontMob fepTextPosR fepTextPosMobL fepTextPosTabL fepTextVertTF" rid="0|4" ridmob="0|6" symbol="Label3" id="ctl00_CPH_b44e92a7__fep59">
+													<div>
+														<div id="ctl00_CPH_R_NPH_NazwaDokumentu" class="form-group fepValidator">
+															<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell" id="ctl00_CPH_b44e92a7__fep60">
+																<div class="col-sm-12 col-xs-12  fepDisabledNew fepTextInputPanel" controltype="valueaslabel">
+																	<span></span><div id="ctl00_CPH_ctl280" class="fepLongString fepTextInput">
+																		<span class="fepMainLabelValue">Numer PESEL:</span><input name="ctl00$CPH$Content_NPH_NazwaDokumentu" type="hidden" id="ctl00_CPH_Content_NPH_NazwaDokumentu" value="Numer PESEL:">
+																	</div><div class="fepValidContainer" feplv="true">
+
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class=" fepGridRounded col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-4 col-md-offset-0 col-md-3 fepColPad fepDesRegion fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="0|4" ridmob="0|7" symbol="Grid4" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+													<div class="row" rid="R0|4|0">
+														 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+														</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-4 col-md-offset-0 col-md-10 fepColPad fepDefFont fepDefFontTab fepDefFontMob" rid="0|4|0" ridmob="0|7|0" symbol="Field3">
+															<div>
+																<div id="ctl00_CPH_R_NPH_NumerPESEL" class="form-group fepValidator fepNoPad">
+																	<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell">
+																		<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="textbox" id="ctl00_CPH_b44e92a7__fep61">
+																			<span class="fepRequired"></span><input name="ctl00$CPH$Content_NPH_NumerPESEL" type="text" maxlength="11" id="ctl00_CPH_Content_NPH_NumerPESEL" class="form-control fepString fepRequiredColor" onkeydown="javascript:  FocusNextOnTab(this,event); return EnterToTab(event);" autocomplete="off"><div class="fepValIconPanel">
+																				<span id="ctl00_CPH_Content_NPH_NumerPESEL_ValImg" class="fepValidIco" style="display: none;"></span>
+																			</div><div class="fepValidContainer" feplv="true">
+																				<span id="ctl00_CPH_WEB_Content_NPH_NumerPESEL" class="fepv fepcust" style="display: none;">Nieprawidłowy numer PESEL</span><span id="ctl00_CPH_REQ_Content_NPH_NumerPESEL" class="fepv fepreq" style="display: none;">Pole wymagane.</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div><div class=" col-xs-0 col-sm-0 col-md-2">
+
+														</div>
+													</div><div class="row" rid="R0|4|1">
+														 <div class="col-xs-0 col-sm-0 col-md-0">
+
+														</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-10 fepColPad fepDefFont fepDefFontTab fepDefFontMob" rid="0|4|1" ridmob="0|7|1" symbol="Field2">
+															<div>
+																<div id="ctl00_CPH_R_NPH_NumerDowoduOsobistego" class="form-group fepValidator fepNoPad" style="display: none;">
+																	<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell">
+																		<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="textbox" id="ctl00_CPH_b44e92a7__fep66">
+																			<span></span><input name="ctl00$CPH$Content_NPH_NumerDowoduOsobistego" type="text" maxlength="20" id="ctl00_CPH_Content_NPH_NumerDowoduOsobistego" class="form-control fepString" onkeydown="javascript:  FocusNextOnTab(this,event); return EnterToTab(event);"><div class="fepValIconPanel">
+																				<span id="ctl00_CPH_Content_NPH_NumerDowoduOsobistego_ValImg" class="fepValidIco" style="display: none;"></span>
+																			</div><div class="fepValidContainer" feplv="true">
+																				<span id="ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego" class="fepv fepreq" style="display: none;">Pole wymagane.</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div><div class=" col-xs-0 col-sm-0 col-md-2">
+
+														</div>
+													</div><div class="row" rid="R0|4|2">
+														 <div class="col-xs-0 col-sm-0 col-md-0">
+
+														</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-10 fepColPad fepDefFont fepDefFontTab fepDefFontMob" rid="0|4|2" ridmob="0|7|2" symbol="Field5">
+															<div>
+																<div id="ctl00_CPH_R_NPH_NumerPaszportu" class="form-group fepValidator fepNoPad" style="display: none;">
+																	<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell">
+																		<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="textbox" id="ctl00_CPH_b44e92a7__fep70">
+																			<span></span><input name="ctl00$CPH$Content_NPH_NumerPaszportu" type="text" maxlength="20" id="ctl00_CPH_Content_NPH_NumerPaszportu" class="form-control fepString" onkeydown="javascript:  FocusNextOnTab(this,event); return EnterToTab(event);"><div class="fepValIconPanel">
+																				<span id="ctl00_CPH_Content_NPH_NumerPaszportu_ValImg" class="fepValidIco" style="display: none;"></span>
+																			</div><div class="fepValidContainer" feplv="true">
+																				<span id="ctl00_CPH_REQ_Content_NPH_NumerPaszportu" class="fepv fepreq" style="display: none;">Pole wymagane.</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div><div class=" col-xs-0 col-sm-0 col-md-2">
+
+														</div>
+													</div><div class="row" rid="R0|4|3">
+														 <div class="col-xs-0 col-sm-0 col-md-0">
+
+														</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-10 fepColPad fepDefFont fepDefFontTab fepDefFontMob" rid="0|4|3" ridmob="0|7|3" symbol="Field6">
+															<div>
+																<div id="ctl00_CPH_R_NPH_KartaPobytu" class="form-group fepValidator fepNoPad" style="display: none;">
+																	<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell">
+																		<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="textbox" id="ctl00_CPH_b44e92a7__fep74">
+																			<span></span><input name="ctl00$CPH$Content_NPH_KartaPobytu" type="text" id="ctl00_CPH_Content_NPH_KartaPobytu" class="form-control fepString" onkeydown="javascript:  FocusNextOnTab(this,event); return EnterToTab(event);"><div class="fepValIconPanel">
+																				<span id="ctl00_CPH_Content_NPH_KartaPobytu_ValImg" class="fepValidIco" style="display: none;"></span>
+																			</div><div class="fepValidContainer" feplv="true">
+																				<span id="ctl00_CPH_REQ_Content_NPH_KartaPobytu" class="fepv fepreq" style="display: none;">Pole wymagane.</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div><div class=" col-xs-0 col-sm-0 col-md-2">
+
+														</div>
+													</div><div class="row" rid="R0|4|4">
+														 <div class="col-xs-0 col-sm-0 col-md-0">
+
+														</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-10 col-md-offset-0 col-md-10 fepColPad fepDefFont fepDefFontTab fepDefFontMob" rid="0|4|4" ridmob="0|7|4" symbol="Field7">
+															<div>
+																<div id="ctl00_CPH_R_NPH_mObywatel" class="form-group fepValidator fepNoPad" style="display: none;">
+																	<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell">
+																		<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="textbox" id="ctl00_CPH_b44e92a7__fep78">
+																			<span></span><input name="ctl00$CPH$Content_NPH_mObywatel" type="text" maxlength="9" id="ctl00_CPH_Content_NPH_mObywatel" class="form-control fepString" onkeydown="javascript:  FocusNextOnTab(this,event); return EnterToTab(event);"><div class="fepValIconPanel">
+																				<span id="ctl00_CPH_Content_NPH_mObywatel_ValImg" class="fepValidIco" style="display: none;"></span>
+																			</div><div class="fepValidContainer" feplv="true">
+																				<span id="ctl00_CPH_WEB_Content_NPH_mObywatel" class="fepv fepcust" style="display: none;">Nieprawidłowy numer mDowód</span><span id="ctl00_CPH_REQ_Content_NPH_mObywatel" class="fepv fepreq" style="display: none;">Pole wymagane.</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div><div class="col-xs-0 col-sm-2 col-md-2">
+
+														</div>
+													</div>
+												</div><div class=" col-xs-0 col-sm-0 col-md-5">
+
+												</div>
+											</div><div class="row" rid="R0|5">
+												 <div class="col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-4 col-md-offset-0 col-md-4 fepColPad fepDesFreeText fepDesFreeText fepDefFont fepDefFontTab fepDefFontMob fepTextPosR fepTextPosMobL fepTextPosTabL fepTextVertTF" rid="0|5" ridmob="0|8" symbol="Label4" id="ctl00_CPH_b44e92a7__fep82">
+													<div>
+														<div class="form-group fepValidator fepNoPad" for="Label4">
+															<div class="control-label fepConLab" id="ctl00_CPH_b44e92a7__fep83">
+																<div class="fepLabelPanel">
+																	<span>Nazwisko rodowe matki:</span><span class="fepRequired fepReqAsterisk" id="ctl00_CPH_b44e92a7__fep84" style="display: none;"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-4 col-md-offset-0 col-md-3 fepColPad fepDefFont fepDefFontTab fepDefFontMob" rid="0|5" ridmob="0|9" symbol="Field4">
+													<div>
+														<div class="form-group fepValidator fepNoPad">
+															<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell">
+																<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="textbox" id="ctl00_CPH_b44e92a7__fep86">
+																	<span class="fepRequired"></span><input name="ctl00$CPH$Content_NPH_NazwiskoRodoweMatki" type="text" maxlength="30" id="ctl00_CPH_Content_NPH_NazwiskoRodoweMatki" class="form-control fepString fepRequiredColor" onkeydown="javascript:  FocusNextOnTab(this,event); return EnterToTab(event);" autocomplete="off"><div class="fepValIconPanel">
+																		<span id="ctl00_CPH_Content_NPH_NazwiskoRodoweMatki_ValImg" class="fepValidIco" style="display: none;"></span>
+																	</div><div class="fepValidContainer" feplv="true">
+																		<span id="ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki" class="fepv fepreq" style="display: none;">Pole wymagane.</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><div class=" col-xs-0 col-sm-0 col-md-5">
+
+												</div>
+											</div><div class="row" rid="R0|6">
+												 <div class="col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class=" col-xs-offset-0 col-xs-3 col-sm-offset-0 col-sm-1 col-md-offset-0 col-md-1 fepColPad fepDesFreeText fepDesFreeText fepDefFont fepDefFontTab fepDefFontMob fepTextPosL fepTextPosMobL fepTextPosTabL" rid="0|6" ridmob="0|10" symbol="Label5" id="ctl00_CPH_b44e92a7__fep89">
+													<div>
+														<div id="ctl00_CPH_R_NPH_Jezyk" class="form-group fepValidator" style="display: none;">
+															<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell" id="ctl00_CPH_b44e92a7__fep91">
+																<div class="col-sm-12 col-xs-12  fepTextInputPanel" controltype="valueaslabel">
+																	<span></span><div id="ctl00_CPH_ctl295" class="fepLongString fepTextInput">
+																		<span class="fepMainLabelValue">1</span><input name="ctl00$CPH$Content_NPH_Jezyk" type="hidden" id="ctl00_CPH_Content_NPH_Jezyk" value="1">
+																	</div><div class="fepValidContainer" feplv="true">
+
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><div class=" col-xs-0 col-sm-0 col-md-3">
+
+												</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-3 col-sm-4 col-md-offset-0 col-md-4 fepColPad fepDesButton fepDefFont fepDefFontTab fepDefFontMob fepButtonNormal" rid="0|6" ridmob="0|11" symbol="Button1">
+													<div class="fepBtnPanel" onmousedown="if(CheckMouseClick(event)){ButClick(this, event)}">
+														<input type="submit" name="ctl00$CPH$nav_G010_TwojeDane_Button1_a010_Dalej" value="Dalej" onclick="return false;WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$CPH$nav_G010_TwojeDane_Button1_a010_Dalej&quot;, &quot;&quot;, true, &quot;FFE&quot;, &quot;&quot;, false, false))" id="ctl00_CPH_nav_G010_TwojeDane_Button1_a010_Dalej" class="btn btn-custom btn-default fepButtCust" onmousedown="if(CheckMouseClick(event) &amp;&amp; navButtonClick(event, 'FFE', false)){ SetFocusOnActionField(this); CallBack(this, 'a010_Dalej', false); } return false;" onfocus="$(this).blur();" fepaction="a010_Dalej"><span class="fepBtnVal">Dalej</span>
+													</div>
+												</div><div class=" col-xs-0 col-sm-0 col-md-4">
+
+												</div>
+											</div><div class="row" rid="R0|7">
+												 <div class="col-xs-0 col-sm-0 col-md-0">
+
+												</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepSepType3 fepDefFont fepDefFontTab fepDefFontMob" rid="0|7" ridmob="0|12" symbol="Separator3">
+													<div>
+														<div id="ctl00_CPH_a027ee0a99b546f88fd814689f6c9439" class="form-group fepValidator fepSeparatorParent fepSeparatorHidden" for="Separator3">
+															<div class="col-sm-12 col-xs-12 fepFieldCellSeparator">
+																<div class="fepLabelPanel">
+																	<span></span><span class="fepRequired fepReqAsterisk" id="ctl00_CPH_b44e92a7__fep92" style="display: none;"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><div class="col-xs-0 col-sm-0 col-md-0">
+
+												</div>
+											</div>
+										</div>
+									</div><div class="col-xs-0 col-sm-0 col-md-0">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><div id="ctl00_CPH_G_G020_HasloDoBankowosci" class="panel panel-default fepPan" order="2">
+				<div class="panel-heading  fepPanHead fepGroupHead">
+					<span>Hasło do bankowości</span>
+				</div><div id="ctl00_CPH__G_G020_HasloDoBankowosci" class="panel-body fepPanBody">
+					<div class="feptable fepDesignGroup">
+						<div>
+							<div class=" fepDefFont fepDefFontTab fepDefFontMob fepVertDist24" rid="0" ridmob="0" symbol="Grid1" bckimgalignmentpc="|||" bckimgalignmenttab="|||" bckimgalignmentmob="|||">
+								<div class="row" rid="R0|0">
+									 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class=" fepGridRounded col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepDesRegion fepStepReg fepSummaryNextTo fepStepHeader12 fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepContentCenter fepTabContentCenter fepMobContentCenter fepGridSepHeightsmall" rid="0" ridmob="0" symbol="Grid2" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+										<div class="fepStepPaneHead">
+
+										</div><div class="fepStepAfter fepFirstHidReg">
+											<div class="fepStepPaneNumber">
+												<span class="fepSepPaneNumber">2</span>
+											</div><div class="fepStepPaneTitle">
+												<span class="fepSepPaneTitle">Hasło do bankowości</span>
+											</div>
+										</div>
+									</div><div class="col-xs-0 col-sm-0 col-md-0">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><div id="ctl00_CPH_G_G030_Potwierdzenie" class="panel panel-default fepPan" order="3">
+				<div class="panel-heading  fepPanHead fepGroupHead">
+					<span>Potwierdzenie</span>
+				</div><div id="ctl00_CPH__G_G030_Potwierdzenie" class="panel-body fepPanBody">
+					<div class="feptable fepDesignGroup">
+						<div>
+							<div class=" fepDefFont fepDefFontTab fepDefFontMob fepVertDist24" rid="0" ridmob="0" symbol="Grid1" bckimgalignmentpc="|||" bckimgalignmenttab="|||" bckimgalignmentmob="|||">
+								<div class="row" rid="R0|0">
+									 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class=" fepGridRounded col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepDesRegion fepStepReg fepSummaryNextTo fepStepHeader12 fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepContentCenter fepTabContentCenter fepMobContentCenter fepGridSepHeightsmall" rid="0" ridmob="0" symbol="Grid2" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+										<div class="fepStepPaneHead">
+
+										</div><div class="fepStepAfter fepStepLast fepDisabledStep fepFirstHidReg">
+											<div class="fepStepPaneNumber">
+												<span class="fepSepPaneNumber">3</span>
+											</div><div class="fepStepPaneTitle">
+												<span class="fepSepPaneTitle">Potwierdzenie</span>
+											</div>
+										</div>
+									</div><div class="col-xs-0 col-sm-0 col-md-0">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><div id="ctl00_CPH_G_G060_Stopka" class="panel panel-default fepPan" order="4">
+				<div class="panel-heading  fepPanHead fepGroupHead">
+					<span>Stopka</span>
+				</div><div id="ctl00_CPH__G_G060_Stopka" class="panel-body fepPanBody">
+					<div class="feptable fepDesignGroup">
+						<div>
+							<div class=" fepDefFont fepDefFontTab fepDefFontMob fepVertDist24" rid="0" ridmob="0" symbol="Grid1" bckimgalignmentpc="|||" bckimgalignmenttab="|||" bckimgalignmentmob="|||">
+								<div class="row" rid="R0|0">
+									 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class="col-xs-12 col-sm-12 col-md-12 fepGridMinSpace fepDefFont fepDefFontTab fepDefFontMob">
+
+									</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+									</div>
+								</div><div class="row" rid="R0|1">
+									 <div class="col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class="col-xs-12 col-sm-12 col-md-12 fepGridMinSpace fepDefFont fepDefFontTab fepDefFontMob">
+
+									</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+									</div>
+								</div><div class="row" rid="R0|2">
+									 <div class="col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class="col-xs-12 col-sm-12 col-md-12 fepGridMinSpace fepDefFont fepDefFontTab fepDefFontMob">
+
+									</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+									</div>
+								</div><div class="row" rid="R0|3">
+									 <div class="col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class=" fepGridRounded col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepDesRegion fepRegG5Back fepDefFont fepDefFontTab fepDefFontMob fepCustomMargins fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="3" ridmob="3" for="NPH_OBezpieczenstwie" symbol="Grid6" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0" id="ctl00_CPH_b44e92a7__fep94">
+										<div class="row" rid="R3|0">
+											 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+											</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepG1 fepDefFont fepDefFontTab fepDefFontMob fepIMGSize16 fepIMGSizeTab20 fepIMGSizeMob20 fepIconLinkPosL fepIconLinkPosMobL fepIconLinkPosTabL fepTextVertC fepTextVertTabC fepTextVertMobC fepIconLink fepLinkStyle1" rid="3|0" ridmob="3|0" symbol="IconLink1">
+												<div class="fepImageLink">
+													<div class="fepLinkImg">
+														<span class="graphics-font graphics-font-ING" onclick="FireLabelClick('ctl00_CPH_Content_NPH_OBezpieczenstwie');" id="ctl00_CPH_b44e92a7__fep95"></span>
+													</div><div>
+														<div class="form-group fepValidator">
+															<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell" id="ctl00_CPH_b44e92a7__fep96">
+																<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="link">
+																	<span></span><a id="ctl00_CPH_Content_NPH_OBezpieczenstwie" class="fepWebLink" onclick="javascript: if (typeof(Wrapper) != 'undefined' &amp;&amp; typeof(Wrapper.openUrl) != 'undefined') {
+            var callbackFunction = function (value) {
+	    	};
+             Wrapper.openUrl('http://www.ingbank.pl/bezpieczenstwo', callbackFunction);
+		  } else {  
+	    	window.open('http://www.ingbank.pl/bezpieczenstwo', '_blank');
+		  }
+" fepaction="WEB" target="_self">O bezpieczeństwie</a><div class="fepValidContainer" feplv="true">
+
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div><div class="col-xs-0 col-sm-0 col-md-0">
+
+											</div>
+										</div>
+									</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+									</div>
+								</div><div class="row" rid="R0|4">
+									 <div class="col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class=" fepGridRounded col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepDesRegion fepRegG5Back fepDefFont fepDefFontTab fepDefFontMob fepCustomMargins fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="4" ridmob="4" for="NPH_OBezpieczenstwieAng" symbol="Grid8" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0" id="ctl00_CPH_b44e92a7__fep97" style="display: none;">
+										<div class="row" rid="R4|0">
+											 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+											</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepG1 fepDefFont fepDefFontTab fepDefFontMob fepIMGSize16 fepIMGSizeTab20 fepIMGSizeMob20 fepIconLinkPosL fepIconLinkPosMobL fepIconLinkPosTabL fepTextVertC fepTextVertTabC fepTextVertMobC fepIconLink fepLinkStyle1" rid="4|0" ridmob="4|0" symbol="IconLink2">
+
+											</div><div class="col-xs-0 col-sm-0 col-md-0">
+
+											</div>
+										</div>
+									</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+									</div>
+								</div><div class="row" rid="R0|5">
+									 <div class="col-xs-0 col-sm-0 col-md-0">
+
+									</div><div class=" fepGridRounded col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepDesRegion fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="5" ridmob="5" symbol="Grid3" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+										<div class="row" rid="R5|0">
+											 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+											</div><div class=" fepGridRounded col-xs-offset-0 col-xs-9 col-sm-offset-0 col-sm-3 col-md-offset-0 col-md-6 fepColPad fepDesRegion fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepMobPadding fepContentCenter fepTabContentCenter fepMobContentCenter" rid="5|0" ridmob="5|0" symbol="Grid2" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+												<div class="row" rid="R5|0|0">
+													 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+													</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepDesFreeText fepDesFreeText fepG2 fepBodySmall1 fepBodySmall1Tab fepBodySmall1Mob fepTextPosL fepTextPosMobL fepTextPosTabL" rid="5|0|0" ridmob="5|0|0" symbol="Label2" id="ctl00_CPH_b44e92a7__fep99">
+														<div>
+															<div class="form-group fepValidator fepNoPad" for="Label2">
+																<div class="control-label fepConLab" id="ctl00_CPH_b44e92a7__fep100">
+																	<div class="fepLabelPanel">
+																		<span>ING Bank Śląski S.A.</span><span class="fepRequired fepReqAsterisk" id="ctl00_CPH_b44e92a7__fep101" style="display: none;"></span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div><div class="col-xs-0 col-sm-0 col-md-0">
+
+													</div>
+												</div>
+											</div><div class=" col-xs-0 col-sm-0 col-md-1">
+
+											</div><div class=" fepGridRounded col-xs-offset-0 col-xs-6 col-sm-offset-4 col-sm-2 col-md-offset-0 col-md-5 fepColPad fepDesRegion fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="5|0" ridmob="5|1" symbol="Grid5" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+												<div class="row" rid="R5|0|0">
+													 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+													</div><div class=" fepGridRounded col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-8 col-md-offset-0 col-md-8 fepColPad fepDesRegion fepDefFont fepDefFontTab fepDefFontMob fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="5|0|0" ridmob="5|1|0" symbol="Grid7" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0">
+														<div class="row" rid="R5|0|0|0">
+															 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+															</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-8 col-md-offset-0 col-md-12 fepColPad fepDesFreeText fepUserMarginLeftTablet fepUserMarginLeftMobile fepDesFreeText fepG2 fepBodySmall1 fepBodySmall1Tab fepBodySmall1Mob fepTextPosR fepTextPosMobL fepTextPosTabL" rid="5|0|0|0" ridmob="5|1|0|0" symbol="Label1" id="ctl00_CPH_b44e92a7__fep103">
+																<div>
+																	<div class="form-group fepValidator fepNoPad" for="Label1">
+																		<div class="control-label fepConLab" id="ctl00_CPH_b44e92a7__fep104">
+																			<div class="fepLabelPanel">
+																				<span>Infolinia: +48 32 357 00 69 &nbsp; &nbsp; &nbsp; &nbsp;|</span><span class="fepRequired fepReqAsterisk" id="ctl00_CPH_b44e92a7__fep105" style="display: none;"></span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div><div class="col-xs-0 col-sm-4 col-md-0">
+
+															</div>
+														</div>
+													</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+													</div><div class=" fepGridRounded col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-4 col-md-offset-0 col-md-4 fepColPad fepDesRegion fepDefFont fepDefFontTab fepDefFontMob fepCustomMargins fepVertDist24 fepBcgCenter fepTabBcgCenter fepMobBcgCenter fepGridSepHeightsmall fepContentCenter fepTabContentCenter fepMobContentCenter" rid="5|0|0" ridmob="5|1|1" symbol="Grid4" bckimgalignmentpc="Center|0|Center|0" bckimgalignmenttab="Center|0|Center|0" bckimgalignmentmob="Center|0|Center|0" id="ctl00_CPH_b44e92a7__fep107">
+														<div class="row" rid="R5|0|0|0">
+															 <div class=" col-xs-0 col-sm-0 col-md-0">
+
+															</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-4 col-md-offset-0 col-md-12 fepColPad fepP1 fepBodySmall1 fepBodySmall1Tab fepBodySmall1Mob fepLinkPosL fepLinkPosMobL fepLinkPosTabL fepLinkStyle1" rid="5|0|0|0" ridmob="5|1|1|0" symbol="Link1">
+																<div>
+																	<div class="form-group fepValidator">
+																		<div class="col-xs-12 col-sm-12 col-md-12 fepFieldCell" id="ctl00_CPH_b44e92a7__fep108">
+																			<div class="col-sm-12 col-xs-12 fepInnerCell" controltype="link">
+																				<span></span><a id="ctl00_CPH_Content_NPH_PolitykaCookies" class="fepWebLink" onclick="javascript: if (typeof(Wrapper) != 'undefined' &amp;&amp; typeof(Wrapper.openUrl) != 'undefined') {
+            var callbackFunction = function (value) {
+	    	};
+             Wrapper.openUrl('https://login.ingbank.pl/mojeing/app/?setLng=pl#cookie-policy ', callbackFunction);
+		  } else {  
+	    	window.open('https://login.ingbank.pl/mojeing/app/?setLng=pl#cookie-policy ', '_blank');
+		  }
+" fepaction="WEB" target="_self" style="color: rgb(118, 118, 118) !important;">Polityka cookies</a><div class="fepValIconPanel">
+																					<span id="ctl00_CPH_Content_NPH_PolitykaCookies_ValImg" class="fepValidIco" style="display: none;"></span>
+																				</div><div class="fepValidContainer" feplv="true">
+
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div><div class=" col-xs-0 col-sm-0 col-md-0">
+
+															</div>
+														</div><div class="row" rid="R5|0|0|1">
+															 <div class="col-xs-0 col-sm-0 col-md-0">
+
+															</div><div class=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 col-md-offset-0 col-md-12 fepColPad fepG2 fepBodySmall1 fepBodySmall1Tab fepBodySmall1Mob fepIMGSize64 fepIMGSizeTab64 fepIMGSizeMob64 fepIconLinkPosL fepIconLinkPosMobL fepIconLinkPosTabL fepIconLink fepLinkStyle1" rid="5|0|0|1" ridmob="5|1|1|1" symbol="IconLink4">
+																<div>
+
+																</div>
+															</div><div class="col-xs-0 col-sm-0 col-md-0">
+
+															</div>
+														</div>
+													</div>
+												</div><div class="row" rid="R5|0|1">
+													 <div class="col-xs-0 col-sm-0 col-md-0">
+
+													</div>
+												</div>
+											</div>
+										</div><div class="row" rid="R5|1">
+											 <div class="col-xs-0 col-sm-3 col-md-0">
+
+											</div>
+										</div>
+									</div><div class="col-xs-0 col-sm-0 col-md-0">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div></div> <!--controlsPanel-->
+                        
+		</div> 
+                        <div class="col-sm-1 col-xs-1 col-xs-1 fepMainR"></div>            
+                    </div>                                           
+					 
+                
+	</div>
+    </div>          
+    <div id="ctl00_CPH_fepUPNav">
+		
+                  
+        
+	</div>
+    <div id="ctl00_CPH_fepFooter" style="display: none;">
+                    <div class="fepLiPan" id="ctl00_CPH_b44e92a7__fep110" style="display: none;">
+                        <div class="col-sm-1 col-xs-1 col-xs-1  fepMainL"></div>  
+                        <div id="ctl00_CPH_fepLineParID2" class="col-sm-10 col-xs-10 fepMainC fepLinePar">
+                        <div class="fepLine"></div></div>
+                        <div class="col-sm-1 col-xs-1 col-xs-1 fepMainR"></div>       
+                    </div>         
+        <div class="form-group">
+           <div id="ctl00_CPH_fepFooterL" class="col-sm-1 col-xs-1 fepMainL"></div>
+           <div id="ctl00_CPH_fepFooterM" class="col-sm-10 col-xs-10 fepMainC">
+               ﻿<table id="ctl00_CPH_b44e92a7__fep111"> 
+<tbody><tr>
+<td align="left" id="ctl00_CPH_b44e92a7__fep112"></td>
+<td id="ctl00_CPH_b44e92a7__fep113"></td>
+<td align="right" id="ctl00_CPH_b44e92a7__fep114"></td>
+</tr>
+</tbody></table>               
+           </div>
+           <div id="ctl00_CPH_fepFooterR" class="col-sm-1 col-xs-1 fepMainR"></div>
+        </div>       
+    </div>
+    <div id="ctl00_CPH_fepPostScriptum">
+        <div class="form-group">
+            <div id="fepPostScriptumL" class="col-sm-1 col-xs-1 col-xs-1 fepMainL"></div>
+            <div id="fepPostScriptumM" class="col-sm-10 col-xs-10 col-xs-10 fepMainC"><!--<span id="ctl00_CPH_fepPostScriptumLabel" style="display:inline-block;width:70%;"></span>--></div>
+            <div id="fepPostScriptumR" class="col-sm-1 col-xs-1 col-xs-1 fepMainR"></div>
+        </div>       
+    </div> 
+     <div id="ctl00_CPH_ValidationSummary1" style="display: none;">
+
+	</div>
+   </div>
+    <div id="ctl00_CPH_fepContainerR" class="col-xs-1 col-md-2 col-lg-2">        
+            ﻿<div>
+
+</div> </div>
+  
+
+
+<div id="ctl00_CPH_upMessage">
+		
+        
+    
+	</div>
+    
+<div id="ctl00_CPH_upDialog">
+		
+         
+            <div id="ctl00_CPH_popDialog">
+                <div id="ctl00_CPH_popupWindow" class="fepPopupWindow hidden"></div>
+            </div>
+        <div id="ctl00_CPH_PanelSign"></div>
+    
+	</div>
+    
+<script type="text/javascript">
+    var UseICheck = 'true' === 'true';
+    var groupWidth = '0'; 
+    var scDocCont = false;
+    
+    Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(
+        function(sender, args) {
+            if (window.FFETrace) {
+                FFETrace.TryClearTrace();
+            }           
+            var groupWidth = '0';
+            if (groupWidth != '' && parseInt(groupWidth) > 0) {              
+                SetGroupHalfPosition(groupWidth);
+            }
+        }
+        
+    );
+    //<!--[if lte IE 7]>
+    Sys.WebForms.PageRequestManager.getInstance().add_initializeRequest(
+        function(sender, args) {
+            $(".fepField").addClass("fepField");
+        }
+    );
+    //<!--endif-->
+    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(
+        function (sender, args) {
+            var error = args.get_error();
+            if (error) {
+                MessageDialog('Wystąpił problem komunikacji z serwerem. Proszę odczekac chwilę i spróbować ponownie', 'error', null, true);
+                console.error('Request server error. The status code returned from the server was: ' + error.httpStatusCode);
+                args.set_errorHandled(true);
+            }
+            else {
+                endRequestScripts();
+            }
+        }
+    );
+
+    function endRequestScripts() {
+        Loader.ConfigureLoader();
+        Loader.ShowLoader();
+        CreateClickableList();
+
+        PrepareDynUI();
+        $('[name="__VIEWSTATE"]').remove();
+        bootstrap40 = SetBootstrapSettings();
+        SetProgressWidth();
+        var startEndRequest = new Date().valueOf().toString();
+        if (typeof (UpdateMatrix) == "function")
+            UpdateMatrix();
+        DisableCopy();
+        BlackoutCardNumber();
+        FitRegHeight();
+        ExpandRegionWidth();
+        ExpandableRegionPosition();
+        CalculateRegionImgPos();
+        InitBanner();
+        PrepareLinkListScrollPane();
+        if (typeof (Page_Validators) == "undefined") {
+            Page_Validators = [];
+        }
+
+        if (typeof (ImageCamera) !== 'undefined') {
+            ImageCamera.Init();
+            ImageCamera.TryToStopCamera();
+        }
+
+        var custom__RUNJS__Action = false;
+        InitTextAreaCounter();
+        HideAppendixInfo();
+        SetStatusSymbol();
+        InsertCrflInElements()
+        ChangeScenStpPos();
+        var obj = $get('ctl00_CPH_FFETRACE');
+        if (obj && obj.value) {
+            var action = obj.value.substr(0, 9);
+            if (action == '__CLOSE__') {
+                window.open('', '_self', '');
+                window.close();
+            }
+        }
+
+        confCurrentSelectLi = null;
+        DisabledToReadOnly(true);
+        ConfigureRulerOnStart()
+        GenreteSliderOnMobile()
+
+        CenterControls(groupWidth);
+        BoolFocus();
+        ProcessPopovers();
+        ShowRequiredInfo();
+        CheckMass();
+        PrepareICheck(document);
+        InitSwitch();
+        AddTerminateSpaceToCheckbox();
+        IncrementorCheckIfDiseabled();
+        AuthorizationSMSPin.Init();
+
+        var groupPop = 'Jeśli wypełnienie formularza, zajmuje Ci zbyt dużo czasu pozostań na stronie i zostaw swoje dane.\r\nNasz doradca skontaktuje się z Tobą i pomoże wypełnić wniosek.';
+        PopupWindow(groupPop);
+        HideShowAsyncFileInfo()
+        CreateImageBubble()
+        RestoreSeparatorStatus();
+        var resizeDDList = false;
+        var enableJScrollPane = true;
+        var enableSelectTooltip = false;
+        var dropupAuto = false;
+        var showEmptyValue = false;
+        if ('false' == 'false') {
+            enableJScrollPane = false;
+        }
+        if ('true' == 'true') {
+            dropupAuto = true;
+        }
+        if ('false' == 'true') {
+            showEmptyValue = true;
+        }
+        if ('false' == 'true') {
+            resizeDDList = true;
+        }
+        if ('false' == 'true') {
+            enableSelectTooltip = true;
+        }
+        if (!confUseNewDropDowns) {
+            if ('48' == "") {
+                        if ("true" == "true") {
+                            SelectPlug(document, 29, resizeDDList, enableJScrollPane, enableSelectTooltip, true, dropupAuto, showEmptyValue);
+                        }
+                        else {
+                            SelectPlug(document, 29, resizeDDList, enableJScrollPane, enableSelectTooltip, false, dropupAuto, showEmptyValue);
+                        }
+                    }
+                    else {
+                        if ("true" == "true") {
+                            SelectPlug(document, parseInt('48'), resizeDDList, enableJScrollPane, enableSelectTooltip, true, dropupAuto, showEmptyValue);
+                        }
+                        else {
+                            SelectPlug(document, parseInt('48'), resizeDDList, enableJScrollPane, enableSelectTooltip, false, dropupAuto, showEmptyValue);
+                        }
+                    }
+                }
+                else {
+                    if ('48' == "") {
+                        if ("true" == "true") {
+                            SelectPlugNew(document, 29, resizeDDList, enableJScrollPane, enableSelectTooltip, true, dropupAuto, showEmptyValue);
+                        }
+                        else {
+                            SelectPlugNew(document, 29, resizeDDList, enableJScrollPane, enableSelectTooltip, false, dropupAuto, showEmptyValue);
+                        }
+                    }
+                    else {
+                        if ("true" == "true") {
+                            SelectPlugNew(document, parseInt('48'), resizeDDList, enableJScrollPane, enableSelectTooltip, true, dropupAuto, showEmptyValue);
+                        }
+                        else {
+                            SelectPlugNew(document, parseInt('48'), resizeDDList, enableJScrollPane, enableSelectTooltip, false, dropupAuto, showEmptyValue);
+                        }
+                    }
+                }
+                if ('circle' == 'textwithbulets' ||
+                    'circle' == 'rectanglearrow' ||
+                    'circle' == 'textwithbuletsblue' ||
+                    'circle' == 'circlewithimage' ||
+                    'circle' == 'bulletswithdescription') {
+                    ChangeProgressToSteps();
+                }
+                ChDDstyle();
+
+                GenerateAppx();
+                if (CheckAddDeleteRowFired()) {
+                    RadioFocusNext(groupWidth);
+                }
+                AddDeleteRowFiredClear();
+                RemoveUnnecessaryRID();
+                SetControlHorizontalPosition();
+                hideProgress();
+
+                if (additionalFocus) {
+                    SetAdditionalFocus();
+                }
+
+                if (!custom__RUNJS__Action) {
+                ;
+                
+                }
+
+
+                SetCustScroll();
+                RestoreScrollPosition();
+                if (typeof InSystemWindowResize == 'function') {
+                    if ('False' === 'False' && typeof UpdateScrollPositionInIframe == 'function') {
+                        var updatedPosition = UpdateScrollPositionInIframe();
+                        InSystemWindowResize(updatedPosition);
+                    }
+                    else {
+                        InSystemWindowResize();
+                    }
+                }
+
+                if ('false' == 'true') {
+                    FieldErrorSignPositioning();
+                }
+
+        if ('false' == 'true') {
+            FieldValidCheckPositioning();
+        }
+        ModalDictionaryItemHeight();
+        setCheckRadioLiHeight();
+        ColoringInputsWithAddons();
+
+        if (confSetControlsAfterInvalid) {
+            if (!CheckNU($('.fepDesignGroup')) && $('.fepDesignGroup').length < 1)
+                confSetControlsAfterInvalid = false;
+        }
+        var img = $('img');
+        img.on('load', function () {
+            if ($(this).hasClass('.fepRadioText' || $(this).closest('.fepRadioText').length > 0))
+                setCheckRadioLiHeight();
+        });
+        if (typeof (Page_ClientValidate) != "undefined") {
+            ValidatorSetFocus = SetCustomFocus;
+            ValidatorUpdateDisplay = FEPValidatorUpdateDisplay;
+            ValidatorUpdateIsValid = FEPValidatorUpdateIsValid;
+            CustomValidatorEvaluateIsValid = FepCustomValidatorEvaluateIsValid;
+            ValidatorTrim = FEPValidatorTrim;
+        }
+        InitGroupSender();
+
+        RadioButtonListNavigation();
+        BoolRadioListNavigation();
+        $(":radio").attr('tabindex', -1);
+        $("a").keypress(function (e) { if (e.keyCode == 32) { this.click(); e.preventDefault(); } });
+
+        SetAsyncFileValidationSupport();
+        EnableDisableTableSaveButton();
+
+        if (typeof CardGallery != 'undefined') { CardGallery.Resize(); }
+
+        var stickyElements = $('.fepSticky');
+        if (!CheckNU(stickyElements) && stickyElements.length > 0 && typeof (stickyElements.sticky) == "function") {
+            stickyElements.sticky({ topSpacing: 0 });
+        }
+
+
+        var tabsElements = $('.fepTabs');
+        if (tabsElements.length > 0 && typeof (tabsElements.tabs) == "function") {
+            tabsElements.tabs();
+        }
+
+        AddHoverEventToLink();
+        InitModalScroll();
+
+        var textAreaWysWig = $('.fepWysWig');
+        if (textAreaWysWig.length > 0) {
+            CreateWysWigEditor();
+        }
+        if (typeof (FFEAsyncCards) != "undefined") {
+            FFEAsyncCards.init();
+        }
+
+        $("input[type='text']").click(function () {
+            $(this).focus();
+        });
+        var $endRequestKeeper = $('#ctl00_CPH_endRequestKeeper');
+        if (!CheckNU($endRequestKeeper))
+            $endRequestKeeper.val(startEndRequest);
+        Loader.HideLoader()
+    }
+	jQuery(document).ready(InitializeGuiControls);
+
+    jQuery(document).ready(Loader.ConfigureLoader());
+    jQuery(document).ready(Loader.ShowLoader());
+    jQuery(document).ready(CreateClickableList());    
+    jQuery(document).ready(SetBootstrapSettings());   
+    jQuery(document).ready(PrepareDynUI());
+    jQuery(document).ready(RadioButtonListNavigation());
+    jQuery(document).ready(BoolRadioListNavigation());
+    $(":radio").attr('tabindex', -1);
+    $("a").keypress(function (e) { if (e.keyCode == 32) { this.click(); e.preventDefault(); } });
+    jQuery(document).ready(DisableCopy());
+    jQuery(document).ready(BlackoutCardNumber());
+    jQuery(document).ready(FitRegHeight());
+    if (typeof (UpdateMatrix) == "function")
+        jQuery(document).ready(UpdateMatrix());
+    
+    jQuery(document).ready(ExpandRegionWidth());
+    jQuery(document).ready(ExpandableRegionPosition());
+    jQuery(document).ready(CalculateRegionImgPos());
+    jQuery(document).ready(InitBanner());
+    jQuery(document).ready(InsertCrflInElements());
+    jQuery(document).ready(DisabledToReadOnly(true));    
+    jQuery(document).ready(setCheckRadioLiHeight());
+    if (confValidationHeaderText) {
+            ValidationSummaryOnSubmit = CustomValidationSummaryOnSubmit;
+        }
+    jQuery(document).ready(function () {
+        $('[name="__VIEWSTATE"]').remove();
+        if (typeof (Page_Validators) == "undefined") {
+            Page_Validators = [];
+        }
+        var custom__RUNJS__Action = false;
+
+        InitTextAreaCounter();
+        HideAppendixInfo();
+		PrepareLinkListScrollPane();
+
+        if (typeof (ImageCamera) !== 'undefined') {
+            ImageCamera.Init();
+        }
+
+        SetStatusSymbol();
+        ChangeScenStpPos();
+        confCurrentSelectLi = null;
+        var resizeDDList = false;
+        var enableSelectTooltip = false;
+        var dropupAuto = false;
+        var showEmptyValue = false;
+        if (confValidationHeaderText) {
+            ValidationSummaryOnSubmit = CustomValidationSummaryOnSubmit;
+        }
+        GenreteSliderOnMobile()
+        if ('false' == 'true') {
+            resizeDDList = true;
+        }
+        if ('true' == 'true') {
+            dropupAuto = true;
+        }
+        if ('false' == 'true') {
+            showEmptyValue = true;
+        }
+        if ('false' == 'true') {
+            enableSelectTooltip = true;
+        }
+        var enableJScrollPane = true;
+        if ('false' == 'false') {
+            enableJScrollPane = false;
+        }
+
+        var ferrytInSystemPrefix = 'worms';
+
+        if (additionalFocus) {
+            SetAdditionalFocus();
+        }
+
+        if (ferrytInSystemPrefix == 'INSURANCE') {
+            ;
+            
+        }
+
+        ConfigureRulerOnStart()
+        HideShowAsyncFileInfo()
+        RestoreSeparatorStatus();
+        AddTerminateSpaceToCheckbox();
+        CreateImageBubble()
+        if (groupWidth != '' && parseInt(groupWidth) > 0) {
+            SetGroupHalfPosition(groupWidth);
+        }
+        if (!confUseNewDropDowns) {
+            if ('48' == "") {
+                if ("true" == "true") {
+                    SelectPlug(document, 29, resizeDDList, enableJScrollPane, enableSelectTooltip, true, dropupAuto, showEmptyValue);
+                }
+                else {
+                    SelectPlug(document, 29, resizeDDList, enableJScrollPane, enableSelectTooltip, false, dropupAuto, showEmptyValue);
+                }
+            }
+            else {
+                if ("true" == "true") {
+                    SelectPlug(document, parseInt('48'), resizeDDList, enableJScrollPane, enableSelectTooltip, true, dropupAuto, showEmptyValue);
+                }
+                else {
+                    SelectPlug(document, parseInt('48'), resizeDDList, enableJScrollPane, enableSelectTooltip, false, dropupAuto, showEmptyValue);
+                }
+            }
+        }
+        else {
+            if ('48' == "") {
+                if ("true" == "true") {
+                    SelectPlugNew(document, 29, resizeDDList, enableJScrollPane, enableSelectTooltip, true, dropupAuto, showEmptyValue);
+                }
+                else {
+                    SelectPlugNew(document, 29, resizeDDList, enableJScrollPane, enableSelectTooltip, false, dropupAuto, showEmptyValue);
+                }
+            }
+            else {
+                if ("true" == "true") {
+                    SelectPlugNew(document, parseInt('48'), resizeDDList, enableJScrollPane, enableSelectTooltip, true, dropupAuto, showEmptyValue);
+                }
+                else {
+                    SelectPlugNew(document, parseInt('48'), resizeDDList, enableJScrollPane, enableSelectTooltip, false, dropupAuto, showEmptyValue);
+                }
+            }
+        }
+        if ('circle' == 'textwithbulets' ||
+            'circle' == 'rectanglearrow' ||
+            'circle' == 'textwithbuletsblue' ||
+            'circle' == 'circlewithimage' ||
+            'circle' == 'rectanglearrowsteps' ||
+            'circle' == 'bulletswithdescription') {
+            ChangeProgressToSteps();
+        }
+        GenerateAppx();
+        ProcessPopovers();
+        ChDDstyle();
+
+        var groupPop = 'Jeśli wypełnienie formularza, zajmuje Ci zbyt dużo czasu pozostań na stronie i zostaw swoje dane.\r\nNasz doradca skontaktuje się z Tobą i pomoże wypełnić wniosek.';
+        PopupWindow(groupPop);
+
+        IncrementorCheckIfDiseabled();
+        AuthorizationSMSPin.Init();
+        SetCustScroll();
+        RestoreScrollPosition();
+        if (typeof InSystemWindowResize == 'function') {
+            if ('False' === 'False' && typeof UpdateScrollPositionInIframe == 'function') {
+                var updatedPosition = UpdateScrollPositionInIframe();
+                InSystemWindowResize(updatedPosition);
+            }
+            else {
+                InSystemWindowResize();
+            }
+        }
+
+        if (typeof CloseWindowWithMessage == 'function') {
+            CloseWindowWithMessage();
+        }
+
+        if ('false' == 'true') {
+            FieldErrorSignPositioning();
+        }
+
+        if ('false' == 'true') {
+            FieldValidCheckPositioning();
+        }
+        ModalDictionaryItemHeight();
+        ColoringInputsWithAddons();
+        SetFocusBorder();
+        RemoveUnnecessaryRID();
+        SetControlHorizontalPosition();
+        hideProgress();
+        if (confSetControlsAfterInvalid) {
+            if (!CheckNU($('.fepDesignGroup')) && $('.fepDesignGroup').length < 1)
+                confSetControlsAfterInvalid = false;
+        }
+        var img = $('img');
+        img.on('load', function () {
+            if ($(this).hasClass('.fepRadioText' || $(this).closest('.fepRadioText').length > 0))
+                setCheckRadioLiHeight();
+        });
+        
+
+             if (typeof (Page_ClientValidate) != "undefined") {
+                ValidatorSetFocus = SetCustomFocus;
+                ValidatorUpdateDisplay = FEPValidatorUpdateDisplay;
+                ValidatorUpdateIsValid = FEPValidatorUpdateIsValid;
+                CustomValidatorEvaluateIsValid = FepCustomValidatorEvaluateIsValid;
+                ValidatorTrim = FEPValidatorTrim;
+            }
+            InitGroupSender();
+            EnableDisableTableSaveButton();
+        
+            if (typeof CardGallery != 'undefined') { CardGallery.Resize(); }
+
+            var stickyElements = $('.fepSticky');
+            if (!CheckNU(stickyElements) && stickyElements.length > 0 && typeof(stickyElements.sticky) == "function") {
+                stickyElements.sticky({ topSpacing: 0 });
+            }
+
+
+        var tabsElements = $('.fepTabs');
+        if (tabsElements.length > 0 && typeof (tabsElements.tabs) == "function") {
+            tabsElements.tabs();
+        }
+
+        AddHoverEventToLink();
+        InitModalScroll();
+        var textAreaWysWig = $('.fepWysWig');
+        if (textAreaWysWig.length > 0) {
+            CreateWysWigEditor();
+        }
+
+        $("input[type='text']").click(function () {
+            $(this).focus();
+        });
+        SetProgressWidth();
+        if (typeof (FFEAsyncCards) != "undefined") {
+            FFEAsyncCards.init();
+        }
+    });
+
+    jQuery(document).ready(CenterControls(groupWidth));
+    jQuery(document).ready(BoolFocus);
+    jQuery(document).ready(ProgressResize);
+    jQuery(document).ready(MultipleLineMaxlength());
+    jQuery(document).ready(Loader.HideLoader());
+
+
+
+    jQuery(window).resize(ExpandableRegionPosition());
+    jQuery(window).resize(function () {
+        $('.fepMatrixColumnPanel').each(function () {
+            MatrixDesktopCarousel($(this));
+        });
+        if (typeof CardGallery != 'undefined') { CardGallery.Resize(); }         
+    });
+            jQuery(window).resize(CenterControls(groupWidth));
+            jQuery(window).resize(ProgressResize);
+            jQuery(window).resize( function(){
+                setCheckRadioLiHeight();
+                var doit;
+                window.onresize = function(){
+                    clearTimeout(doit);
+                    doit = setTimeout(ModalDictionaryItemHeight, 500, true);
+                };
+            });
+            jQuery(window).resize( function(){
+                ConfigureRulerOnStart()
+            });
+            jQuery(window).resize( function(){
+                CreateImageBubble();
+            });
+            jQuery(window).resize( function(){
+                SetControlHorizontalPosition();
+                if(confValidBackgroundOnRow){              
+                    SetValidationPosition(null, true);
+                }             
+            });
+            jQuery(window).resize(function () {
+                FitRegHeight();
+                ExpandRegionWidth();
+                SetProgressWidth();
+                InitSwitch();
+                if(!(mobileCheck() || tabletCheck())) {
+                    CalculateRegionImgPos();
+                }
+            });           
+            jQuery(document).ready(function () {
+            	ShowRequiredInfo();
+            	CheckMass();
+                PrepareICheck(document);
+            	if (groupWidth != '' && parseInt(groupWidth) > 0) {
+            	    SetGroupHalfPosition(groupWidth);
+                }
+                InitSwitch();
+            });
+            	jQuery(window).resize(function () {
+            		GenerateAppx();
+            	});
+                jQuery(window).resize(function () {
+                    if (CheckWindowWidthChange()) {
+                        ProcessPopovers();
+                    }
+                    CheckWindowHeightChange();
+                });
+
+            	$(document).ready(function(){
+            	    $(".btn").click(function(){
+            	        if (typeof InSystemWindowResize == 'function') {
+            	            InSystemWindowResize();
+            	        }
+            	    });
+            	});
+            	$(window).on('load', function(){
+                    setCheckRadioLiHeight();
+                    InitSwitch();
+                    SaveWindowDimensions(null, null);
+    });
+
+
+    function InitializeGuiControls() {
+            if ('false' == 'true') {
+                console.log('initGUIControls');
+                initGUIControls();
+            }
+        }
+
+</script>
+
+            </div>
+        
+</div><div class="fepMainLoader" id="MainLoader"> </div><div class="fepMainModalBackground"> </div>    
+    <div id="ctl00_UploadLoader" class="fepUploadLoader" style="display: none;"></div>
+
+        
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("ctl00_CPH_ValidationSummary1"));
+var Page_Validators =  new Array(document.getElementById("ctl00_CPH_WEB_Content_NPH_Login"), document.getElementById("ctl00_CPH_REQ_Content_NPH_Login"), document.getElementById("ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora"), document.getElementById("ctl00_CPH_WEB_Content_NPH_NumerPESEL"), document.getElementById("ctl00_CPH_REQ_Content_NPH_NumerPESEL"), document.getElementById("ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego"), document.getElementById("ctl00_CPH_REQ_Content_NPH_NumerPaszportu"), document.getElementById("ctl00_CPH_REQ_Content_NPH_KartaPobytu"), document.getElementById("ctl00_CPH_WEB_Content_NPH_mObywatel"), document.getElementById("ctl00_CPH_REQ_Content_NPH_mObywatel"), document.getElementById("ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_CPH_WEB_Content_NPH_Login = document.all ? document.all["ctl00_CPH_WEB_Content_NPH_Login"] : document.getElementById("ctl00_CPH_WEB_Content_NPH_Login");
+ctl00_CPH_WEB_Content_NPH_Login.controltovalidate = "ctl00_CPH_Content_NPH_Login";
+ctl00_CPH_WEB_Content_NPH_Login.focusOnError = "t";
+ctl00_CPH_WEB_Content_NPH_Login.errormessage = "Login";
+ctl00_CPH_WEB_Content_NPH_Login.display = "Dynamic";
+ctl00_CPH_WEB_Content_NPH_Login.validationGroup = "FFE";
+ctl00_CPH_WEB_Content_NPH_Login.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_CPH_WEB_Content_NPH_Login.validationexpression = "^[a-zA-Z]{6}[0-9]{4}$";
+var ctl00_CPH_REQ_Content_NPH_Login = document.all ? document.all["ctl00_CPH_REQ_Content_NPH_Login"] : document.getElementById("ctl00_CPH_REQ_Content_NPH_Login");
+ctl00_CPH_REQ_Content_NPH_Login.controltovalidate = "ctl00_CPH_Content_NPH_Login";
+ctl00_CPH_REQ_Content_NPH_Login.focusOnError = "t";
+ctl00_CPH_REQ_Content_NPH_Login.errormessage = "Login";
+ctl00_CPH_REQ_Content_NPH_Login.display = "Dynamic";
+ctl00_CPH_REQ_Content_NPH_Login.validationGroup = "FFE";
+ctl00_CPH_REQ_Content_NPH_Login.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_CPH_REQ_Content_NPH_Login.clientvalidationfunction = "ValidateCustVal";
+ctl00_CPH_REQ_Content_NPH_Login.validateemptytext = "true";
+var ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora = document.all ? document.all["ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora"] : document.getElementById("ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora");
+ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora.controltovalidate = "ctl00_CPH_Content_NPH_TypIdentyfikatora";
+ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora.focusOnError = "t";
+ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora.errormessage = "Typ Identyfikatora";
+ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora.display = "Dynamic";
+ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora.validationGroup = "FFE";
+ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora.clientvalidationfunction = "ValidateCustVal";
+ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora.validateemptytext = "true";
+var ctl00_CPH_WEB_Content_NPH_NumerPESEL = document.all ? document.all["ctl00_CPH_WEB_Content_NPH_NumerPESEL"] : document.getElementById("ctl00_CPH_WEB_Content_NPH_NumerPESEL");
+ctl00_CPH_WEB_Content_NPH_NumerPESEL.controltovalidate = "ctl00_CPH_Content_NPH_NumerPESEL";
+ctl00_CPH_WEB_Content_NPH_NumerPESEL.focusOnError = "t";
+ctl00_CPH_WEB_Content_NPH_NumerPESEL.errormessage = "Numer PESEL";
+ctl00_CPH_WEB_Content_NPH_NumerPESEL.display = "Dynamic";
+ctl00_CPH_WEB_Content_NPH_NumerPESEL.validationGroup = "FFE";
+ctl00_CPH_WEB_Content_NPH_NumerPESEL.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_CPH_WEB_Content_NPH_NumerPESEL.clientvalidationfunction = "FlowValidation_Pesel_Client";
+var ctl00_CPH_REQ_Content_NPH_NumerPESEL = document.all ? document.all["ctl00_CPH_REQ_Content_NPH_NumerPESEL"] : document.getElementById("ctl00_CPH_REQ_Content_NPH_NumerPESEL");
+ctl00_CPH_REQ_Content_NPH_NumerPESEL.controltovalidate = "ctl00_CPH_Content_NPH_NumerPESEL";
+ctl00_CPH_REQ_Content_NPH_NumerPESEL.focusOnError = "t";
+ctl00_CPH_REQ_Content_NPH_NumerPESEL.errormessage = "Numer PESEL";
+ctl00_CPH_REQ_Content_NPH_NumerPESEL.display = "Dynamic";
+ctl00_CPH_REQ_Content_NPH_NumerPESEL.validationGroup = "FFE";
+ctl00_CPH_REQ_Content_NPH_NumerPESEL.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_CPH_REQ_Content_NPH_NumerPESEL.clientvalidationfunction = "ValidateCustVal";
+ctl00_CPH_REQ_Content_NPH_NumerPESEL.validateemptytext = "true";
+var ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego = document.all ? document.all["ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego"] : document.getElementById("ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego");
+ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego.controltovalidate = "ctl00_CPH_Content_NPH_NumerDowoduOsobistego";
+ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego.focusOnError = "t";
+ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego.errormessage = "Numer dowodu osobistego";
+ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego.display = "Dynamic";
+ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego.enabled = "False";
+ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego.validationGroup = "FFEX";
+ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego.clientvalidationfunction = "ValidateCustVal";
+ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego.validateemptytext = "true";
+var ctl00_CPH_REQ_Content_NPH_NumerPaszportu = document.all ? document.all["ctl00_CPH_REQ_Content_NPH_NumerPaszportu"] : document.getElementById("ctl00_CPH_REQ_Content_NPH_NumerPaszportu");
+ctl00_CPH_REQ_Content_NPH_NumerPaszportu.controltovalidate = "ctl00_CPH_Content_NPH_NumerPaszportu";
+ctl00_CPH_REQ_Content_NPH_NumerPaszportu.focusOnError = "t";
+ctl00_CPH_REQ_Content_NPH_NumerPaszportu.errormessage = "Numer Paszportu";
+ctl00_CPH_REQ_Content_NPH_NumerPaszportu.display = "Dynamic";
+ctl00_CPH_REQ_Content_NPH_NumerPaszportu.enabled = "False";
+ctl00_CPH_REQ_Content_NPH_NumerPaszportu.validationGroup = "FFEX";
+ctl00_CPH_REQ_Content_NPH_NumerPaszportu.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_CPH_REQ_Content_NPH_NumerPaszportu.clientvalidationfunction = "ValidateCustVal";
+ctl00_CPH_REQ_Content_NPH_NumerPaszportu.validateemptytext = "true";
+var ctl00_CPH_REQ_Content_NPH_KartaPobytu = document.all ? document.all["ctl00_CPH_REQ_Content_NPH_KartaPobytu"] : document.getElementById("ctl00_CPH_REQ_Content_NPH_KartaPobytu");
+ctl00_CPH_REQ_Content_NPH_KartaPobytu.controltovalidate = "ctl00_CPH_Content_NPH_KartaPobytu";
+ctl00_CPH_REQ_Content_NPH_KartaPobytu.focusOnError = "t";
+ctl00_CPH_REQ_Content_NPH_KartaPobytu.errormessage = "NPH_KartaPobytu";
+ctl00_CPH_REQ_Content_NPH_KartaPobytu.display = "Dynamic";
+ctl00_CPH_REQ_Content_NPH_KartaPobytu.enabled = "False";
+ctl00_CPH_REQ_Content_NPH_KartaPobytu.validationGroup = "FFEX";
+ctl00_CPH_REQ_Content_NPH_KartaPobytu.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_CPH_REQ_Content_NPH_KartaPobytu.clientvalidationfunction = "ValidateCustVal";
+ctl00_CPH_REQ_Content_NPH_KartaPobytu.validateemptytext = "true";
+var ctl00_CPH_WEB_Content_NPH_mObywatel = document.all ? document.all["ctl00_CPH_WEB_Content_NPH_mObywatel"] : document.getElementById("ctl00_CPH_WEB_Content_NPH_mObywatel");
+ctl00_CPH_WEB_Content_NPH_mObywatel.controltovalidate = "ctl00_CPH_Content_NPH_mObywatel";
+ctl00_CPH_WEB_Content_NPH_mObywatel.focusOnError = "t";
+ctl00_CPH_WEB_Content_NPH_mObywatel.errormessage = "NPH_mObywatel";
+ctl00_CPH_WEB_Content_NPH_mObywatel.display = "Dynamic";
+ctl00_CPH_WEB_Content_NPH_mObywatel.validationGroup = "FFE";
+ctl00_CPH_WEB_Content_NPH_mObywatel.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_CPH_WEB_Content_NPH_mObywatel.validationexpression = "^[a-zA-Z]{4}[0-9]{5}$";
+var ctl00_CPH_REQ_Content_NPH_mObywatel = document.all ? document.all["ctl00_CPH_REQ_Content_NPH_mObywatel"] : document.getElementById("ctl00_CPH_REQ_Content_NPH_mObywatel");
+ctl00_CPH_REQ_Content_NPH_mObywatel.controltovalidate = "ctl00_CPH_Content_NPH_mObywatel";
+ctl00_CPH_REQ_Content_NPH_mObywatel.focusOnError = "t";
+ctl00_CPH_REQ_Content_NPH_mObywatel.errormessage = "NPH_mObywatel";
+ctl00_CPH_REQ_Content_NPH_mObywatel.display = "Dynamic";
+ctl00_CPH_REQ_Content_NPH_mObywatel.enabled = "False";
+ctl00_CPH_REQ_Content_NPH_mObywatel.validationGroup = "FFEX";
+ctl00_CPH_REQ_Content_NPH_mObywatel.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_CPH_REQ_Content_NPH_mObywatel.clientvalidationfunction = "ValidateCustVal";
+ctl00_CPH_REQ_Content_NPH_mObywatel.validateemptytext = "true";
+var ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki = document.all ? document.all["ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki"] : document.getElementById("ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki");
+ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki.controltovalidate = "ctl00_CPH_Content_NPH_NazwiskoRodoweMatki";
+ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki.focusOnError = "t";
+ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki.errormessage = "Nazwisko rodowe matki";
+ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki.display = "Dynamic";
+ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki.validationGroup = "FFE";
+ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki.clientvalidationfunction = "ValidateCustVal";
+ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki.validateemptytext = "true";
+var ctl00_CPH_ValidationSummary1 = document.all ? document.all["ctl00_CPH_ValidationSummary1"] : document.getElementById("ctl00_CPH_ValidationSummary1");
+ctl00_CPH_ValidationSummary1.headertext = "Nie wypełniono lub błędnie wypełniono wylistowane pola:";
+ctl00_CPH_ValidationSummary1.showsummary = "False";
+ctl00_CPH_ValidationSummary1.validationGroup = "FFE";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+function init() { try {document.getElementById('ctl00_ddlBank').disabled=true; document.getElementById('ctl00_ddlProfile').disabled=true; document.getElementById('ctl00_ddProfileSelect').disabled=true; document.getElementById('ctl00_ddlTheme').disabled=true; } catch(e) {} } window.onload = init;;function logEventCodesInClientConsole(){return true;}$('#ctl00_CPH_fepContainerM').addClass('fepLastStep');(function() {var fn = function() {$get("ctl00_SM_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();$('.fepProgress').addClass('hiddenProgress');if (typeof FFE != 'undefined') FFE.Tables.Clear();try { jQuery(document).ready(function(){
+    jQuery( document ).on( 'focus', ':input', function(){
+        jQuery("#ctl00_CPH_Content_NPH_Login").attr( 'autocomplete', 'off' );
+    });
+});
+jQuery(document).ready(function(){
+    jQuery( document ).on( 'focus', ':input', function(){
+        jQuery("#ctl00_CPH_Content_NPH_NumerPESEL").attr( 'autocomplete', 'off' );
+    });
+});
+
+
+jQuery(document).ready(function(){
+    jQuery( document ).on( 'focus', ':input', function(){
+        jQuery("#ctl00_CPH_Content_NPH_NazwiskoRodoweMatki").attr( 'autocomplete', 'off' );
+    });
+}); } catch(error) { console.error('Błąd w skrypcie na otwarciu grupy: "G010_TwojeDane", error: ' + error); };createStyleLink('ING', 'GetImage.axd?s=ING.fontface&b=6&v=EDE10C748');try { jQuery(document).ready(function(){
+jQuery("#ctl00_CPH_Content_NPH_PolitykaCookies").css("cssText", "color:#767676 !important;");
+}); } catch(error) { console.error('Błąd w skrypcie na otwarciu grupy: "G060_Stopka", error: ' + error); };$('#ctl00_CPH_actionExecuter').on('ap010_PokazInformacjeOLoginie', function(event) { WFNPH_GdzieZnajdeLogin(this, event); });var FFENamingContainer = 'ctl00_CPH'; var FFEPrefix = 'ctl00_CPH_';
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        $('#ctl00_CPH_actionExecuter').on('ap010_ZmianaTypuIdentyfikatora', function(event) { WFNPH_TypIdentyfikatora(this, event); });$('#ctl00_CPH_actionExecuter').on('ap010_ZmianaTypuIdentyfikatora', function(event) { WFNPH_TypIdentyfikatoraAng(this, event); });$('#ctl00_CPH_actionExecuter').on('WEB', function(event) {  });$('#ctl00_CPH_actionExecuter').on('WEB', function(event) {  });
+(function(id) {
+    var e = document.getElementById(id);
+    if (e) {
+        e.dispose = function() {
+            Array.remove(Page_ValidationSummaries, document.getElementById(id));
+        }
+        e = null;
+    }
+})('ctl00_CPH_ValidationSummary1');
+
+document.getElementById('ctl00_CPH_WEB_Content_NPH_Login').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_CPH_WEB_Content_NPH_Login'));
+}
+
+document.getElementById('ctl00_CPH_REQ_Content_NPH_Login').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_CPH_REQ_Content_NPH_Login'));
+}
+
+document.getElementById('ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_CPH_REQ_Content_NPH_TypIdentyfikatora'));
+}
+
+document.getElementById('ctl00_CPH_WEB_Content_NPH_NumerPESEL').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_CPH_WEB_Content_NPH_NumerPESEL'));
+}
+
+document.getElementById('ctl00_CPH_REQ_Content_NPH_NumerPESEL').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_CPH_REQ_Content_NPH_NumerPESEL'));
+}
+
+document.getElementById('ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_CPH_REQ_Content_NPH_NumerDowoduOsobistego'));
+}
+
+document.getElementById('ctl00_CPH_REQ_Content_NPH_NumerPaszportu').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_CPH_REQ_Content_NPH_NumerPaszportu'));
+}
+
+document.getElementById('ctl00_CPH_REQ_Content_NPH_KartaPobytu').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_CPH_REQ_Content_NPH_KartaPobytu'));
+}
+
+document.getElementById('ctl00_CPH_WEB_Content_NPH_mObywatel').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_CPH_WEB_Content_NPH_mObywatel'));
+}
+
+document.getElementById('ctl00_CPH_REQ_Content_NPH_mObywatel').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_CPH_REQ_Content_NPH_mObywatel'));
+}
+
+document.getElementById('ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_CPH_REQ_Content_NPH_NazwiskoRodoweMatki'));
+}
+//]]>
+</script>
+</form>
+
+    
+    <div id="session-warning" style="display: none;">
+	    <div id="session-warning_PanelDialog" class="PanelDialog">
+		    <div id="session-warning_divModalBackground" class="ModalBackground"></div><div id="session-warning_MessageDialog_divDialog" class="Dialog">
+			    <div id="session-warning_MessageDialog_divDialogTitle" class="DialogTitle" onmousedown="javascript: RegDDDialog('session-warning_MessageDialog_divDialog', 'session-warning_MessageDialog_divDialogTitle');">
+			        <table cellpadding="0" cellspacing="0">
+				        <tbody><tr><td class="DialogTitleL"></td>
+				            <td class="DialogTitleM">
+				                <span id="session-warning_MessageDialog_lblTitle" class="DialogTitleR">Informacja</span></td></tr>
+			        </tbody></table>
+			    </div>
+			    <div class="DialogForm">
+				    <table cellpadding="0" cellspacing="0" width="100%">
+			    		    <tbody><tr><td id="ctl00_CPH_b44e92a7__fep115">
+					    <div id="session-warning_MessageDialog_divMessage" class="DialogMessage">Sesja wygaśnie za: <br><br>
+					    </div>
+	   				    </td></tr>
+				    </tbody></table>
+                		    <div class="Toolbar">
+                    			    <a id="session-warning_MessageDialog_lbB1" class="ToolButtonS" onclick="window.document.getElementById('session-warning').style.display = 'none';">OK</a>
+                                        
+                		    </div>
+			    </div>
+		    </div>
+	    </div> 
+    </div>
+
+    
+    <script type="text/javascript">      
+        if ('true' == "true") {
+            window.onmouseover = function (sender, args) { window.onbeforeunload = null; };
+            window.onmouseout = function (sender, args) { window.onbeforeunload = Try2CloseBrowser; };
+        }
+
+    </script>
+<script type="text/javascript">
+        function getSessionTimeout() {
+            try {
+                var sessionTimeoutValue = window.document.getElementById('ctl00_hidSessionTimeout');
+                if (sessionTimeoutValue && sessionTimeoutValue.value) {
+                    return parseInt(sessionTimeoutValue.value) * 60000;
+                }
+            }
+            catch (err) {
+            }
+            return 1800000;
+        }
+        var timeout = getSessionTimeout();
+
+</script>
+
+<script type="text/javascript">
+    if (false === true) {
+        var timer = setInterval(function () { timeout -= 1000; if (window.document.getElementById('ctl00_lblSessionTimeout') != undefined) { document.getElementById('ctl00_lblSessionTimeout').innerHTML = (timeout == 0 ? expire() : time(timeout)); } }, 1000);
+        var sessionwarn = false;
+        function two(x) { return ((x > 9) ? "" : "0") + x }
+        function time(ms) {
+            var t = '';
+            var sec = Math.floor(ms / 1000);
+            try {
+                var warnValue = window.document.getElementById('ctl00_hidSessionTimeoutWarn');
+                var label = window.document.getElementById('ctl00_lblSessionTimeout');
+                if (warnValue && label && warnValue.value) {
+                    var warn = parseInt(warnValue.value);
+                    if (sec <= warn) {
+                        label.className = "LabelSessionTimeout LabelSessionTimeoutWarn";
+                        if (!sessionwarn && document.URL.indexOf("ApplicationForm.aspx", 0) > -1) {
+                            sessionwarn = true;
+                            window.document.getElementById('session-warning').style.display = 'block';
+                        }
+                    }
+                }
+            }
+            catch (err) {
+            }
+            ms = ms % 1000
+            var min = Math.floor(sec / 60);
+            sec = sec % 60;
+            t = two(sec);
+            var hr = Math.floor(min / 60);
+            min = min % 60;
+            return 'Sesja wygaśnie za: ' + two(hr) + ":" + two(min) + ":" + t;
+
+        }
+        function expire() {
+            clearInterval(timer);
+            var str = 'Sesja została zakończona';
+            setTimeout(function() { alert(str); setTimeout(function() { location.reload(true); }, 200); }, 0);
+            return str;
+        }
+    }
+    else {
+        if (true === true) {
+            var timer = setInterval(function () { timeout -= 1000; if (timeout <= 0) { expire() } }, 1000);
+            function expire() {
+                clearInterval(timer);
+                var str = 'Sesja została zakończona';
+             setTimeout(function() { alert(str); setTimeout(function() { location.reload(true); }, 200); }, 0);
+            }
+        }
+    }
+    
+    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(
+        function (sender, args) {
+            var confBootPicker = true;
+            var confBootPickerPosition = 'bottom left';
+            var confBootPickerAutoclose = true;
+            var confBootPickerWeekstart = 1;
+            var confDateFormat = 'yyyy-mm-dd';
+            var confSeparatorHide = true;   
+            var confUseAsyncLoading = false;
+
+            if ('default' != "default") {
+                confDateFormat = 'default';
+            }
+            if (confBootPicker) {
+                BSDatePicker(document, confDateFormat, confBootPickerPosition, confBootPickerAutoclose, confBootPickerWeekstart);
+            }
+            else {
+                JQDatePicker(confDateFormat);
+
+            }
+            if (confSeparatorHide) {
+                HideInSeparator();
+            }
+            SetFocusBorder()
+            submitCount = 0;
+            if (args.get_error() != undefined) {
+                if (args.get_error().name == 'Sys.WebForms.PageRequestManagerParserErrorException') {
+                    if (args.get_response() != undefined) {
+                        var responseTxtStream = args.get_response().get_responseData();
+                        if (responseTxtStream.substring(0, 16) == '<!--LOGOWANIE-->') {
+                            alert('Sesja wygasła lub została zerwana. Musisz zalogować się ponownie.');
+                            args.set_errorHandled(true);
+                            args.get_response().abort();
+                            top.location.reload()
+                        }
+                        else if (responseTxtStream.substring(0, 12) == 'EXPORTTOFILE') {
+                            var responseString = responseTxtStream.substring(12, responseTxtStream.length - 12);
+                            var index = responseString.indexOf('EXPORTTOFILE');
+                            args.set_errorHandled(true);
+                            args.get_response().abort();
+                            if (index != -1) {
+                                top.location = responseString.substring(0, index);
+                            }
+                            else {
+                                top.location = '../OpenFile.aspx?ExportToFile=1';
+                            }
+                        } else if (responseTxtStream.substring(0, 11) == 'EXPORTTOCSV') {
+                            var responseString = responseTxtStream.substring(12, responseTxtStream.length - 12);
+                            var index = responseString.indexOf('EXPORTTOCSV');
+                            args.set_errorHandled(true);
+                            args.get_response().abort();
+                            if (index != -1) {
+                                top.location = responseString.substring(0, index);
+                            }
+                            else {
+                                top.location = '../OpenFile.aspx?ExportToCsv=1';
+                            }
+                        } else if (responseTxtStream.substring(0, 20) == '<!--RELOADREQUEST-->') {
+                            args.set_errorHandled(true);
+                            args.get_response().abort();
+                            top.location.reload()
+                        }
+                    }
+                }
+                if (args.get_error().name == "Sys.WebForms.PageRequestManagerTimeoutException") {
+                    alert('Przekroczono czas oczekiwania na odpowiedź serwera. Proszę odświeżyć stronę i spróbować ponownie.');
+                    args.set_errorHandled(true);
+                    args.get_response().abort();
+                }
+                if (args.get_error().name == "Sys.WebForms.PageRequestManagerServerErrorException") {
+                    if (!CheckNU(sender) && !CheckNU(sender._postBackSettings) && !CheckNU(sender._postBackSettings.asyncTarget)) {
+                        if (sender._postBackSettings.asyncTarget.indexOf("nav_ROLLBACK") > -1) {
+                            args.set_errorHandled(true);
+                            args.get_response().abort();
+                            top.location.reload();
+                        }
+                    }
+                }
+            }
+            DecimalPointFormat();
+            CheckIfMultichoice();
+            AsyncFileDragDropInit();
+
+            if (jQuery('[data-toggle="popover"]').not('.fepTableHelperRecord [data-toggle="popover"]').length > 0) {
+                jQuery('[data-toggle="popover"]').not('.fepTableHelperRecord [data-toggle="popover"]').popover({
+                    container: 'body',
+                    html: true
+                });
+            }
+
+            if (jQuery('[data-toggle="popover"]').length > 0) {
+                jQuery('body').on('click', function (e) { PopoverProps(e, parseInt('0') > 0); });
+            }
+        }
+
+    );
+
+
+
+    function Try2CloseBrowser(event) {
+        var reloadParentIFrame = false;
+        if (window.frameElement == null || (window.frameElement != null && window.frameElement.nodeName != null && window.frameElement.nodeName != undefined && window.frameElement.nodeName != "" && window.frameElement.nodeName.toLowerCase() != 'iframe'))
+            reloadParentIFrame = false;
+        if (reloadParentIFrame) {
+            if (window.frameElement != null && window.frameElement.nodeName != null && window.frameElement.nodeName != undefined && window.frameElement.nodeName.toLowerCase() == 'iframe') {
+                var appPathname = window.top.location.pathname.slice(1);
+                var appName = appPathname.substring(0, appPathname.indexOf('/'));
+                window.top.location.href = window.top.location.protocol + "//" + window.top.location.hostname + "/" + appName;
+            }
+        }
+        else {
+            Loader.ShowLoader();
+            var appPathname = window.location.pathname.slice(1);
+            var appName = appPathname.substring(0, appPathname.indexOf('/'));
+            var fullAddress = window.location.protocol + "//" + window.location.hostname + "/" + appName + "/ScriptServices/ClearSession.asmx";
+
+            fullAddress += "/Clear";
+            ClearSession();
+    
+            function ClearSession() {
+                $.ajax({
+                    type: 'POST',
+                    url: fullAddress,
+                    async: false,
+                    success: function () {
+                    },
+                    error: function () {
+
+                    }
+                });
+            }
+        }
+    }
+    var confBootPicker = true;
+    var confBootPickerPosition = 'bottom left';
+    var confBootPickerAutoclose = true;
+    var confBootPickerWeekstart = 1;   
+    var confSeparatorHide = true;   
+    var confUseAsyncLoading = false;
+    var confDateFormat = 'yyyy-mm-dd';
+
+    if ('default' != "default") {
+        confDateFormat = 'default';
+    }
+    jQuery(document).ready(function () {
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_initializeRequest(InitializeRequest);
+        prm.add_pageLoaded(PageLoaded);
+
+        function InitializeRequest(sender, args) {
+            jQuery('#ctl00_CPH_upFields').attr('disabled', 'disabled');
+            jQuery('#ctl00_CPH_ffeStepTable1').attr('disabled', 'disabled');
+        }
+
+        function PageLoaded(sender, args) {
+            if (document.aspnetForm.ctl00_CPH_ffeFocusField != undefined &&
+                document.aspnetForm.ctl00_CPH_ffeFocusField.value != "") {
+                var ctrid = document.aspnetForm.ctl00_CPH_ffeFocusField.value;
+                jQuery('#' + document.aspnetForm.ctl00_CPH_ffeFocusField.value).focus();
+                document.aspnetForm.ctl00_CPH_ffeFocusField.value = "";
+            }
+            else if (document.aspnetForm.ctl00_CPH_fepFocusField != undefined &&
+                document.aspnetForm.ctl00_CPH_fepFocusField.value != "") {
+                var ctrid = document.aspnetForm.ctl00_CPH_fepFocusField.value.replace('ctl00$CPH$', 'ctl00_CPH_');
+                var targetControl = $get(ctrid);
+                if (targetControl == null && $("[id= " + ctrid + "]") != null && $("[id= " + ctrid + "]") != undefined && $("[id= " + ctrid + "]").length > 0 && $("[id= " + ctrid + "]").parent().hasClass('fepConfirmCb')) {
+                    targetControl = $("[id= " + ctrid + "]").parent()[0];
+                }
+                if (targetControl) {
+                    var oldContentEditableSetting = targetControl.contentEditable;
+                    targetControl.contentEditable = false;
+                    targetControl.focus();
+                    targetControl.contentEditable = oldContentEditableSetting;
+                }
+
+                document.aspnetForm.ctl00_CPH_fepFocusField.value = "";
+            }
+            else {
+                jQuery('#ctl00_CPH_upFields').prop('disabled', '');
+            }
+
+        }
+
+
+        if (confBootPicker) {
+            BSDatePicker(document, confDateFormat, confBootPickerPosition, confBootPickerAutoclose, confBootPickerWeekstart);
+        }
+        else {
+            JQDatePicker(confDateFormat);
+
+        }
+        if (confSeparatorHide) {
+            HideInSeparator();
+        }
+        SetFocusBorder()
+        rebuildHeaderTableOnLoad();
+        if (jQuery('[data-toggle="popover"]').not('.fepTableHelperRecord [data-toggle="popover"]').length > 0) {
+            jQuery('[data-toggle="popover"]').not('.fepTableHelperRecord [data-toggle="popover"]').popover({
+                container: 'body',
+                html: true
+            });
+
+        }
+
+        if (jQuery('[data-toggle="popover"]').length > 0) {
+            jQuery('body').on('click', function (e) { PopoverProps(e, parseInt('0') > 0); });
+        }
+
+
+        rebuildHeaderTableOnLoad();
+
+
+        if (jQuery('#ismobile').css('display') == 'block') {
+            jQuery(".fepHCpxLayout td").each(function () {
+                jQuery(this).css('display', 'table-row');
+                jQuery(this).css('height', '40px');
+            });
+        }
+        jQuery(window).resize(function () {
+            if (jQuery('#ismobile').css('display') == 'block') {
+                jQuery(".fepHCpxLayout td").each(function () {
+                    jQuery(this).css('display', 'table-row');
+                    jQuery(this).css('height', '40px');
+                });
+            }
+            else {
+                jQuery(".fepHCpxLayout td").each(function () {
+                    jQuery(this).css('display', '');
+                    jQuery(this).css('height', '');
+                });
+            }
+        });
+
+        DecimalPointFormat();
+        CheckIfMultichoice();
+        AsyncFileDragDropInit();
+    });
+    $(document).on('focus', 'input[readonly]', function () {
+        $(this).blur();
+    });
+    $(document).on('mousedown', 'input[readonly]', function () {
+        return false;
+    });
+    setFEPDevice();
+</script>
+<script>
+    function CheckFlag() {
+        var flagExist = false;
+        if ('True' == "true") {
+            flagExist = true;
+        }
+        return flagExist;
+    }
+</script>
+
+
+<script src="WizardWfB.aspx?type=initjs&amp;v=a00c12b8-3273-47a5-80cd-dd2b2c32eded"></script><script src="WizardWfB.aspx?type=js&amp;v=a00c12b8-3273-47a5-80cd-dd2b2c32eded" id="fepinlinescript"></script></body></html>
